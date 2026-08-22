@@ -9,11 +9,12 @@ const config = {
 
   future: { v4: true },
 
-  url: 'https://your-docusaurus-site.example.com',
-  baseUrl: '/',
+  url: 'https://Zerattel.github.io',
+  baseUrl: '/Noosphere/',
 
-  organizationName: 'facebook',
-  projectName: 'NOOSPHERE',
+  organizationName: 'Zerattel',
+  projectName: 'Noosphere',
+  trailingSlash: false, // Рекомендуемая настройка для GitHub Pages
 
   onBrokenLinks: 'throw',
 
