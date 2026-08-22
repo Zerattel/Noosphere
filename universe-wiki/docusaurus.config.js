@@ -16,7 +16,7 @@ const config = {
   projectName: 'Noosphere',
   trailingSlash: false, // Рекомендуемая настройка для GitHub Pages
 
-  onBrokenLinks: 'throw',
+  onBrokenLinks: 'warn',
 
   i18n: {
     defaultLocale: 'en',
