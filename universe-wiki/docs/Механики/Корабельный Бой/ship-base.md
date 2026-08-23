@@ -20,7 +20,7 @@
 | Тоннаж | Ускорение (ΔV/ход) | Манёвренность | Трюм (м³) | Дальность контакта | Разрешение сенсоров |
 | :--- | :---: | :---: | :---: | :---: | :---: |
 | <img src={require('@site/static/img/tonnage/Group_11.png').default} width="24" height="auto" style={{ verticalAlign: 'middle', marginRight: '4px' }} /> **Шаттл** | 240 | +5 | 5 | 5 км | 15 м |
-| <img src={require('@site/static/img/tonnage/Shuttle.png').default} width="24" height="auto" style={{ verticalAlign: 'middle', marginRight: '4px' }} /> **Корвет** | 180 | +4 | 25 | 10 км | 20 м |
+| <img src={require('@site/static/img/tonnage/shuttle.png').default} width="24" height="auto" style={{ verticalAlign: 'middle', marginRight: '4px' }} /> **Корвет** | 180 | +4 | 25 | 10 км | 20 м |
 | <img src={require('@site/static/img/tonnage/frigate.png').default} width="24" height="auto" style={{ verticalAlign: 'middle', marginRight: '4px' }} /> **Фрегат** | 150 | +3 | 50 | 25 км | 30 м |
 | <img src={require('@site/static/img/tonnage/destroer.png').default} width="24" height="auto" style={{ verticalAlign: 'middle', marginRight: '4px' }} /> **Эсминец** | 120 | +2 | 75 | 35 км | 50 м |
 | <img src={require('@site/static/img/tonnage/cruiser.png').default} width="24" height="auto" style={{ verticalAlign: 'middle', marginRight: '4px' }} /> **Крейсер** | 90 | +1 | 160 | 50 км | 100 м |
