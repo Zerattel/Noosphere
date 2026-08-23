@@ -153,3 +153,5 @@ html[data-theme='dark'] body {
   color: #a0a0a0;         /* нейтрально-серый */
   opacity: 0.8;
 }
+
+.katex-html { display: none; }

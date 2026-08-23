@@ -1,5 +1,7 @@
 // @ts-check
 import {themes as prismThemes} from 'prism-react-renderer';
+import remarkMath from 'remark-math';
+import rehypeKatex from 'rehype-katex';
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
@@ -31,9 +33,8 @@ const config = {
         docs: {
           routeBasePath: '/',
           sidebarPath: './sidebars.js',
-          // ===== НОВОЕ: поддержка математики =====
-          remarkPlugins: [require('remark-math')],
-          rehypePlugins: [require('rehype-katex')],
+         remarkPlugins: [remarkMath],
+          rehypePlugins: [rehypeKatex],
         },
         blog: false,
         theme: {
@@ -41,6 +42,15 @@ const config = {
         },
       }),
     ],
+  ],
+  stylesheets: [
+    {
+      href: 'https://cdn.jsdelivr.net/npm/katex@0.13.24/dist/katex.min.css',
+      type: 'text/css',
+      integrity:
+        'sha384-odtC+0UGZ/qTGb2814/9OxlqqwKa/O23xZ32s/WOTxRjOaE99lC6vXzGgZ8b3L',
+      crossorigin: 'anonymous',
+    },
   ],
 
   themeConfig:
@@ -82,7 +92,9 @@ const config = {
           crossorigin: 'anonymous',
         },
       ],
+      
     }),
+    
 };
 
 export default config;
