@@ -35,8 +35,8 @@
 Остальные характеристики кораблей:
 | Характеристика | <img src={require('@site/static/img/tonnage/unknown-mission.png').default} width="64" height="auto" style={{ verticalAlign: 'middle', marginRight: '4px' }} /> **Объяснение:** |
 | :--- | :---: |
-| <img src={require('@site/static/img/tonnage/icon_damage_therm.png').default} width="32" height="auto" style={{ verticalAlign: 'middle', marginRight: '4px' }} /> Температура (%) | То, насколько нагрет ваш корабль. |
-| <img src={require('@site/static/img/tonnage/icon_resist_therm.png').default} width="32" height="auto" style={{ verticalAlign: 'middle', marginRight: '4px' }} /> Предел температуры (%) |  Предел, после которого ваш корабль начнёт получать урон от перегрева. По умолчанию 100% |
+| <img src={require('@site/static/img/tonnage/Icon_damage_therm.png').default} width="32" height="auto" style={{ verticalAlign: 'middle', marginRight: '4px' }} /> Температура (%) | То, насколько нагрет ваш корабль. |
+| <img src={require('@site/static/img/tonnage/Icon_resist_therm.png').default} width="32" height="auto" style={{ verticalAlign: 'middle', marginRight: '4px' }} /> Предел температуры (%) |  Предел, после которого ваш корабль начнёт получать урон от перегрева. По умолчанию 100% |
 | <img src={require('@site/static/img/tonnage/Icon_capacitor_recharger.png').default} width="32" height="auto" style={{ verticalAlign: 'middle', marginRight: '4px' }} /> Вместимость конденсатора (ГДж) | Грубо говоря "Очки действия" вашего корабля. Энергия накапливается в конденсаторе и если вы тратите больше энергии чем производите то будет затрачен заряд конденсатора. |
 | <img src={require('@site/static/img/tonnage/Icon_ISIS_Energydestabilization.png').default} width="32" height="auto" style={{ verticalAlign: 'middle', marginRight: '4px' }} /> Избыточная выработка (ГДж/Ход) | То, сколько энергии в ход вам даётся. Все излишки уходят в конденсатор. |
 | Масса | Маса вашего корабля. Мало на что влияет. Нужна для рассчёта урона от тарана и оценки ваших шансов схлопнуть червоточину за собой. |
