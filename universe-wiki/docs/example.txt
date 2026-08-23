@@ -2,6 +2,8 @@
 
 Это тестовая страница, чтобы проверить, как работает шрифт Exo 2 и новые стили гиперссылок. 
 
+<img src={require('@site/static/img/tonnage/isis_battlecruiser.png').default} width="32" height="auto" style={{ verticalAlign: 'middle', marginRight: '4px' }} />
+
 <div class="hazard-line"></div>
 
 <div style={{ textAlign: 'center' }}>

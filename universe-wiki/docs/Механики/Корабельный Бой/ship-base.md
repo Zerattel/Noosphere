@@ -19,20 +19,32 @@
 
 | Тоннаж | Ускорение (ΔV/ход) | Манёвренность | Трюм (м³) | Дальность контакта | Разрешение сенсоров |
 | :--- | :---: | :---: | :---: | :---: | :---: |
-| <img src={require('@site/static/img/tonnage/Group_11.png').default} width="24" height="auto" style={{ verticalAlign: 'middle', marginRight: '4px' }} /> **Шаттл** | 240 | +5 | 5 | 5 км | 15 м |
-| <img src={require('@site/static/img/tonnage/shuttle.png').default} width="24" height="auto" style={{ verticalAlign: 'middle', marginRight: '4px' }} /> **Корвет** | 180 | +4 | 25 | 10 км | 20 м |
-| <img src={require('@site/static/img/tonnage/frigate.png').default} width="24" height="auto" style={{ verticalAlign: 'middle', marginRight: '4px' }} /> **Фрегат** | 150 | +3 | 50 | 25 км | 30 м |
-| <img src={require('@site/static/img/tonnage/destroer.png').default} width="24" height="auto" style={{ verticalAlign: 'middle', marginRight: '4px' }} /> **Эсминец** | 120 | +2 | 75 | 35 км | 50 м |
-| <img src={require('@site/static/img/tonnage/cruiser.png').default} width="24" height="auto" style={{ verticalAlign: 'middle', marginRight: '4px' }} /> **Крейсер** | 90 | +1 | 160 | 50 км | 100 м |
-| <img src={require('@site/static/img/tonnage/battlecruiser.png').default} width="24" height="auto" style={{ verticalAlign: 'middle', marginRight: '4px' }} /> **Линейный крейсер** | 72 | 0 | 230 | 60 км | 140 м |
-| <img src={require('@site/static/img/tonnage/battleship.png').default} width="24" height="auto" style={{ verticalAlign: 'middle', marginRight: '4px' }} /> **Линкор** | 54 | -2 | 620 | 100 км | 400 м |
-| <img src={require('@site/static/img/tonnage/dreadnought.png').default} width="24" height="auto" style={{ verticalAlign: 'middle', marginRight: '4px' }} /> **Дредноут** | 36 | -4 | 1 500 | 300 км | 600 м |
-| <img src={require('@site/static/img/tonnage/ADS.png').default} width="24" height="auto" style={{ verticalAlign: 'middle', marginRight: '4px' }} /> **Корабль авт. развёртывания** | 18 | -6 | 3 500 | 500 км | 700 м |
-| <img src={require('@site/static/img/tonnage/titan.png').default} width="24" height="auto" style={{ verticalAlign: 'middle', marginRight: '4px' }} /> **Титан** | 12 | -10 | 12 800 | 500 км | 800 м |
+| <img src={require('@site/static/img/tonnage/isis_shuttle.png').default} width="32" height="auto" style={{ verticalAlign: 'middle', marginRight: '4px' }} /> **Шаттл** | 240 | +5 | 5 | 5 км | 15 м |
+| <img src={require('@site/static/img/tonnage/isis_rookie.png').default} width="32" height="auto" style={{ verticalAlign: 'middle', marginRight: '4px' }} /> **Корвет** | 180 | +4 | 25 | 10 км | 20 м |
+| <img src={require('@site/static/img/tonnage/isis_frigate.png').default} width="32" height="auto" style={{ verticalAlign: 'middle', marginRight: '4px' }} /> **Фрегат** | 150 | +3 | 50 | 25 км | 30 м |
+| <img src={require('@site/static/img/tonnage/isis_destroyer.png').default} width="32" height="auto" style={{ verticalAlign: 'middle', marginRight: '4px' }} /> **Эсминец** | 120 | +2 | 75 | 35 км | 50 м |
+| <img src={require('@site/static/img/tonnage/isis_cruiser.png').default} width="32" height="auto" style={{ verticalAlign: 'middle', marginRight: '4px' }} /> **Крейсер** | 90 | +1 | 160 | 50 км | 100 м |
+| <img src={require('@site/static/img/tonnage/isis_battlecruiser.png').default} width="32" height="auto" style={{ verticalAlign: 'middle', marginRight: '4px' }} /> **Линейный крейсер** | 72 | 0 | 230 | 60 км | 140 м |
+| <img src={require('@site/static/img/tonnage/isis_battleship.png').default} width="32" height="auto" style={{ verticalAlign: 'middle', marginRight: '4px' }} /> **Линкор** | 54 | -2 | 620 | 100 км | 400 м |
+| <img src={require('@site/static/img/tonnage/isis_capital.png').default} width="32" height="auto" style={{ verticalAlign: 'middle', marginRight: '4px' }} /> **Дредноут** | 36 | -4 | 1 500 | 300 км | 600 м |
+| <img src={require('@site/static/img/tonnage/isis_supercarrier.png').default} width="32" height="auto" style={{ verticalAlign: 'middle', marginRight: '4px' }} /> **Корабль авт. развёртывания** | 18 | -6 | 3 500 | 500 км | 700 м |
+| <img src={require('@site/static/img/tonnage/isis_titan.png').default} width="32" height="auto" style={{ verticalAlign: 'middle', marginRight: '4px' }} /> **Титан** | 12 | -10 | 12 800 | 500 км | 800 м |
 | <img src={require('@site/static/img/tonnage/unknown-mission.png').default} width="64" height="auto" style={{ verticalAlign: 'middle', marginRight: '4px' }} /> **Объяснение:** | <span class="tiny">То, на сколько вы можете ускориться за один ход</span> | <span class="tiny">Бонус к броску на маневрирование.</span> | <span class="tiny">Объём трюма</span> | <span class="tiny">Максимальная дистацния захвата цели</span> | <span class="tiny">Ожидаемый размер сигнатуры цели</span> |
 
 > <span class="highlight">Важно:</span> *Разрешение* корабля для удобства выражено сразу в размере **ожидаемой** сигнатуры цели, т.е. точно так же как и с вашей собственной сигнатурой: Чем ниже тем лучше!
----
+<div class="hazard-line"></div>
+
+Остальные характеристики кораблей:
+| Характеристика | <img src={require('@site/static/img/tonnage/unknown-mission.png').default} width="64" height="auto" style={{ verticalAlign: 'middle', marginRight: '4px' }} /> **Объяснение:** |
+| :--- | :---: |
+| <img src={require('@site/static/img/tonnage/icon_damage_therm.png').default} width="32" height="auto" style={{ verticalAlign: 'middle', marginRight: '4px' }} /> Температура (%) | То, насколько нагрет ваш корабль. |
+| <img src={require('@site/static/img/tonnage/icon_resist_therm.png').default} width="32" height="auto" style={{ verticalAlign: 'middle', marginRight: '4px' }} /> Предел температуры (%) |  Предел, после которого ваш корабль начнёт получать урон от перегрева. По умолчанию 100% |
+| <img src={require('@site/static/img/tonnage/icon_capacitor_recharger.png').default} width="32" height="auto" style={{ verticalAlign: 'middle', marginRight: '4px' }} /> Вместимость конденсатора (ГДж) | Грубо говоря "Очки действия" вашего корабля. Энергия накапливается в конденсаторе и если вы тратите больше энергии чем производите то будет затрачен заряд конденсатора. |
+| <img src={require('@site/static/img/tonnage/Icon_ISIS_Energydestabilization.png').default} width="32" height="auto" style={{ verticalAlign: 'middle', marginRight: '4px' }} /> Избыточная выработка (ГДж/Ход) | То, сколько энергии в ход вам даётся. Все излишки уходят в конденсатор. |
+| Масса | Маса вашего корабля. Мало на что влияет. Нужна для рассчёта урона от тарана и оценки ваших шансов схлопнуть червоточину за собой. |
+| <img src={require('@site/static/img/tonnage/Icon_ISIS_Tackling.png').default} width="32" height="auto" style={{ verticalAlign: 'middle', marginRight: '4px' }} /> Радиус сигнатуры | То, насколько хорошо видно ваш корабль на системах слежения других кораблей. Чем меньше тем лучше. Прямо противопоставляется разрешению сенсоров захватывающего вас корабля.|
+| <img src={require('@site/static/img/tonnage/32px-Icon_hull.png').default} width="32" height="auto" style={{ verticalAlign: 'middle', marginRight: '1px' }} /><img src={require('@site/static/img/tonnage/Icon_armor.png').default} width="32" height="auto" style={{ verticalAlign: 'middle', marginRight: '1px' }} /><img src={require('@site/static/img/tonnage/Icon_shield.png').default} width="32" height="auto" style={{ verticalAlign: 'middle', marginRight: '1px' }} />Прочность | Условные единицы прочности трёх эшелонов защиты вашего корабля: <img src={require('@site/static/img/tonnage/32px-Icon_hull.png').default} width="32" height="auto" style={{ verticalAlign: 'middle', marginRight: '1px' }} /> Корпус, <img src={require('@site/static/img/tonnage/Icon_armor.png').default} width="32" height="auto" style={{ verticalAlign: 'middle', marginRight: '1px' }} /> Броня и <img src={require('@site/static/img/tonnage/Icon_shield.png').default} width="32" height="auto" style={{ verticalAlign: 'middle', marginRight: '1px' }} /> Кинетический барьер |
+| Сопротивляемость | Сопротивляемость каждого эшелона защиты <img src={require('@site/static/img/tonnage/32px-Icon_hull.png').default} width="32" height="auto" style={{ verticalAlign: 'middle', marginRight: '1px' }} /><img src={require('@site/static/img/tonnage/Icon_armor.png').default} width="32" height="auto" style={{ verticalAlign: 'middle', marginRight: '1px' }} /><img src={require('@site/static/img/tonnage/Icon_shield.png').default} width="32" height="auto" style={{ verticalAlign: 'middle', marginRight: '1px' }} /> отдельно каждому из четырёх типов урона: <img src={require('@site/static/img/tonnage/Icon_resist_em.png').default} width="32" height="auto" style={{ verticalAlign: 'middle', marginRight: '1px' }} /> Электромагнитному, <img src={require('@site/static/img/tonnage/Icon_resist_kin.png').default} width="32" height="auto" style={{ verticalAlign: 'middle', marginRight: '1px' }} /> Кинетическому, <img src={require('@site/static/img/tonnage/Icon_resist_therm.png').default} width="32" height="auto" style={{ verticalAlign: 'middle', marginRight: '1px' }} /> Термическому и <img src={require('@site/static/img/tonnage/Icon_resist_exp.png').default} width="32" height="auto" style={{ verticalAlign: 'middle', marginRight: '1px' }} /> Фугасному. Друг от друга они ничем принципиально не отличаются и просто противопоставляются характеру атаки противника. [Принцип работы модулей сопротивляемости описан здесь](404.md). |
 
 ## <img src={require('@site/static/img/tonnage/Outpost.png').default} width="48" height="48" style={{ verticalAlign: 'middle', marginRight: '4px' }} /> 2. Оснащение (модули)
 
@@ -50,11 +62,14 @@
 - **Орудийные**: Внешние модули – Орудия и некоторые средства РЭБ и поддержки флота
 - **Инженерные**: Внутренние – реакторы, усилители, охлаждение, электроника, ангары, трюмы.
 
-<span class="highlight">Важно:</span> Некоторые модули с процентным бонусом мешают друг другу (интерференция). Подробнее – см. [Оснащение корабля (доп.)](404). Также важно понимать что модуль считается внешним лишь в двух случаях: Или он находится во вкладке вооружения или он имеет в названии (внешн.) обязательно в скобочках.
+<span class="highlight">Важно:</span> Модуль считается внешним лишь в двух случаях: Или он находится во вкладке вооружения или он имеет в названии (внешн.) обязательно в скобочках.
+
+Некоторые модули с процентным бонусом мешают друг другу (интерференция). Подробнее – см. [Интерференция](404).
 
 Полный список модулей – в **[Google Таблице](https://docs.google.com/spreadsheets/d/1Qcvg7rnlH5e0f9lWWxI7LfoMlzYNRdgrdcCVP0AYcSA/edit?usp=drivesdk)**.
 
----
+<div class="hazard-line"></div>
+
 
 ## 3. Установление контакта (захват цели)
 
@@ -71,7 +86,8 @@ $$
 
 (округляется до целого в большую сторону).
 
----
+<div class="hazard-line"></div>
+
 
 ## 4. Как составить ход
 
@@ -262,48 +278,47 @@ $$
 
 Видео гайд – [Как составить ход](https://youtu.be/Ggb-bCTOZPc)
 
----
+<div class="hazard-line"></div>
+
 
 ## 5. Попадания и урон
 
-Шанс попадания зависит от трёх факторов:  
+Каждый тип оружия тем или иным образом отличается по тому, как именно рассчитывается атака. Глобально способы вести огонь можно разделить на два принципа: Рассчётный и Симулируемый. Рассчётные атаки (Баллистика, Лазеры, РЭБ) и Симулируемые атаки (Ракеты, Торпеды, Мины).
+
+Симулируемые атаки не учитывают многие характеристики цели и родителя и их относительные данные, а просто физически создают физический снаряд (субтело) летящий во врага.
+
+Для рассчитываемых атак шанс попадания зависит от трёх факторов:  
 - соотношение разрешения сенсоров и сигнатуры цели,  
 - качество контакта против маневренности цели,  
-- скорость наведения турелей против угловой скорости цели.
+- скорость наведения турелей против угловой скорости цели относительно вас.
 
-**Баллистика:** точность падает с дистанцией, урон постоянен.  
-**Лазеры:** точность не падает, урон снижается.  
-**ПУ и бомбы** – работают через субтела (см. отдельную статью).
+**Баллистика:** точность падает с дистанцией, урон постоянен.
+**Лазеры:** точность не падает с дистанцией, урон снижается.  
+**Ракеты, Мины, Торпеды** – работают через субтела (см. отдельную статью).
 
-Интерактивный калькулятор шанса: **[Desmos](https://www.desmos.com/calculator/azhfesl4ga?lang=uk)**.
+Интерактивный калькулятор шанса для турелей: **[Desmos](https://www.desmos.com/calculator/azhfesl4ga?lang=uk)**.
 
-Детали – [Попадания и урон (доп.)](корабельный-бой/uron-dop.md) (пока не создано).
+<div class="hazard-line"></div>
 
----
 
 ## 6. Термодинамика (перегрев)
 
 В вакууме тепло не рассеивается – нужны системы охлаждения.  
 Температура измеряется в % (0 – холодный, 100 – предел).  
-При перегреве (>100%) корпус получает урон каждый ход:
+При перегреве >100% (Или больше чем предел перегрева) корпус получает урон каждый ход:
 
+$$ 
+\text{Overheat\_Damage} = \frac{\text{Max\_Hull\_HP} \cdot (\text{Temperature} - \text{Max\_Temperature})}{400}
 $$
-Overheat_Damage = Max_Hull_HP * (Temperature - Max_Temperature) / 400
-$$
 
-Охлаждение – отдельный модуль, его можно калибровать.
-
+Охлаждение – отдельный модуль, его можно калибровать. Должен быть поставлен на корабль.
+---
+<div class="hazard-line"></div>
 ---
 
 ## 7. Дополнительные механики (по желанию)
 
 Если вы хотите углубиться – изучите эти статьи:
-
-- [Субтела (ракеты, аппараты)](корабельный-бой/sub-tela.md)  
-- [Курсовое оружие](корабельный-бой/kursovoe-oruzhie.md)  
-- [Резонанс кинетического барьера](корабельный-бой/rezonans-barera.md)  
-- [Калибровка и инженерия](корабельный-бой/kalibrovka.md)  
-- [Ремонт вручную](корабельный-бой/remont-vruchnuyu.md)
 
 ---
 
