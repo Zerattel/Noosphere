@@ -1,4 +1,6 @@
-
+---
+title: Главная
+---
 <div class="hazard-line"></div>
 
 <svg viewBox="0 0 1617 244" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -32,7 +34,7 @@
 </svg>
 <div class="hazard-line"></div>
 
-# База знаний Noosphere
+# [База знаний Noosphere](https://zerattel.github.io/Noosphere/main)
 
 В этой вики соединены основные статьи справки сервера Hayat Sector RP для их удобного прочтения.
 
@@ -42,6 +44,6 @@
 </div>
 
 ## К прочтению:
-- [Философия игры](Философия игры.md)
+- [Философия игры](phylosophy)
 ## Авторы
 - Zerattel

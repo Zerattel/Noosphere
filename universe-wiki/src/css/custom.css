@@ -52,7 +52,6 @@ html[data-theme='dark'] body {
 .markdown a:hover {
   color: var(--ifm-link-hover-color);
   text-decoration: none;
-  /* Делаем фон чуть ярче */
   background: repeating-linear-gradient(
     45deg,
     rgba(255, 140, 0, 0.25),
@@ -60,6 +59,12 @@ html[data-theme='dark'] body {
     transparent 5px,
     transparent 10px
   );
+  /* 🌟 СИЯНИЕ ТОЛЬКО ТЕКСТА, А НЕ БЛОКА */
+  text-shadow: 
+    0 0 4px rgba(255, 140, 0, 0.8),
+    0 0 12px rgba(255, 140, 0, 0.6),
+    0 0 24px rgba(255, 140, 0, 0.4),
+    0 0 48px rgba(255, 140, 0, 0.2);
 }
 
 /* Кастомные визуальные элементы */
@@ -134,4 +139,17 @@ html[data-theme='dark'] body {
   left: 0;
   width: 100%;
   height: 100%;
+}
+
+/* Бледно-оранжевый жирный текст */
+.highlight {
+  font-weight: bold;
+  color: #ffdba5;
+}
+
+/* Очень мелкий серый текст (подпись, сноска, доп. информация) */
+.tiny {
+  font-size: 0.7rem;      /* примерно 11-12px, в зависимости от базового размера */
+  color: #a0a0a0;         /* нейтрально-серый */
+  opacity: 0.8;
 }
