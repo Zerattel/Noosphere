@@ -1,5 +1,3 @@
-
-
 # Основы корабельного боя
 
 <div class="hazard-line"></div>
@@ -19,16 +17,16 @@
 
 | Тоннаж | Ускорение (ΔV/ход) | Манёвренность | Трюм (м³) | Дальность контакта | Разрешение сенсоров |
 | :--- | :---: | :---: | :---: | :---: | :---: |
-| <img src={require('@site/static/img/tonnage/isis_shuttle.png').default} width="32" height="auto" style={{ verticalAlign: 'middle', marginRight: '4px' }} /> **Шаттл** | 240 | +5 | 5 | 5 км | 15 м |
-| <img src={require('@site/static/img/tonnage/isis_rookie.png').default} width="32" height="auto" style={{ verticalAlign: 'middle', marginRight: '4px' }} /> **Корвет** | 180 | +4 | 25 | 10 км | 20 м |
-| <img src={require('@site/static/img/tonnage/isis_frigate.png').default} width="32" height="auto" style={{ verticalAlign: 'middle', marginRight: '4px' }} /> **Фрегат** | 150 | +3 | 50 | 25 км | 30 м |
-| <img src={require('@site/static/img/tonnage/isis_destroyer.png').default} width="32" height="auto" style={{ verticalAlign: 'middle', marginRight: '4px' }} /> **Эсминец** | 120 | +2 | 75 | 35 км | 50 м |
-| <img src={require('@site/static/img/tonnage/isis_cruiser.png').default} width="32" height="auto" style={{ verticalAlign: 'middle', marginRight: '4px' }} /> **Крейсер** | 90 | +1 | 160 | 50 км | 100 м |
-| <img src={require('@site/static/img/tonnage/isis_battlecruiser.png').default} width="32" height="auto" style={{ verticalAlign: 'middle', marginRight: '4px' }} /> **Линейный крейсер** | 72 | 0 | 230 | 60 км | 140 м |
-| <img src={require('@site/static/img/tonnage/isis_battleship.png').default} width="32" height="auto" style={{ verticalAlign: 'middle', marginRight: '4px' }} /> **Линкор** | 54 | -2 | 620 | 100 км | 400 м |
-| <img src={require('@site/static/img/tonnage/isis_capital.png').default} width="32" height="auto" style={{ verticalAlign: 'middle', marginRight: '4px' }} /> **Дредноут** | 36 | -4 | 1 500 | 300 км | 600 м |
-| <img src={require('@site/static/img/tonnage/isis_supercarrier.png').default} width="32" height="auto" style={{ verticalAlign: 'middle', marginRight: '4px' }} /> **Корабль авт. развёртывания** | 18 | -6 | 3 500 | 500 км | 700 м |
-| <img src={require('@site/static/img/tonnage/isis_titan.png').default} width="32" height="auto" style={{ verticalAlign: 'middle', marginRight: '4px' }} /> **Титан** | 12 | -10 | 12 800 | 500 км | 800 м |
+| <img src={require('@site/static/img/tonnage/Isis_shuttle.png').default} width="32" height="auto" style={{ verticalAlign: 'middle', marginRight: '4px' }} /> **Шаттл** | 240 | +5 | 5 | 5 км | 15 м |
+| <img src={require('@site/static/img/tonnage/Isis_rookie.png').default} width="32" height="auto" style={{ verticalAlign: 'middle', marginRight: '4px' }} /> **Корвет** | 180 | +4 | 25 | 10 км | 20 м |
+| <img src={require('@site/static/img/tonnage/Isis_frigate.png').default} width="32" height="auto" style={{ verticalAlign: 'middle', marginRight: '4px' }} /> **Фрегат** | 150 | +3 | 50 | 25 км | 30 м |
+| <img src={require('@site/static/img/tonnage/Isis_destroyer.png').default} width="32" height="auto" style={{ verticalAlign: 'middle', marginRight: '4px' }} /> **Эсминец** | 120 | +2 | 75 | 35 км | 50 м |
+| <img src={require('@site/static/img/tonnage/Isis_cruiser.png').default} width="32" height="auto" style={{ verticalAlign: 'middle', marginRight: '4px' }} /> **Крейсер** | 90 | +1 | 160 | 50 км | 100 м |
+| <img src={require('@site/static/img/tonnage/Isis_battlecruiser.png').default} width="32" height="auto" style={{ verticalAlign: 'middle', marginRight: '4px' }} /> **Линейный крейсер** | 72 | 0 | 230 | 60 км | 140 м |
+| <img src={require('@site/static/img/tonnage/Isis_battleship.png').default} width="32" height="auto" style={{ verticalAlign: 'middle', marginRight: '4px' }} /> **Линкор** | 54 | -2 | 620 | 100 км | 400 м |
+| <img src={require('@site/static/img/tonnage/Isis_capital.png').default} width="32" height="auto" style={{ verticalAlign: 'middle', marginRight: '4px' }} /> **Дредноут** | 36 | -4 | 1 500 | 300 км | 600 м |
+| <img src={require('@site/static/img/tonnage/Isis_supercarrier.png').default} width="32" height="auto" style={{ verticalAlign: 'middle', marginRight: '4px' }} /> **Корабль авт. развёртывания** | 18 | -6 | 3 500 | 500 км | 700 м |
+| <img src={require('@site/static/img/tonnage/Isis_titan.png').default} width="32" height="auto" style={{ verticalAlign: 'middle', marginRight: '4px' }} /> **Титан** | 12 | -10 | 12 800 | 500 км | 800 м |
 | <img src={require('@site/static/img/tonnage/unknown-mission.png').default} width="64" height="auto" style={{ verticalAlign: 'middle', marginRight: '4px' }} /> **Объяснение:** | <span class="tiny">То, на сколько вы можете ускориться за один ход</span> | <span class="tiny">Бонус к броску на маневрирование.</span> | <span class="tiny">Объём трюма</span> | <span class="tiny">Максимальная дистацния захвата цели</span> | <span class="tiny">Ожидаемый размер сигнатуры цели</span> |
 
 > <span class="highlight">Важно:</span> *Разрешение* корабля для удобства выражено сразу в размере **ожидаемой** сигнатуры цели, т.е. точно так же как и с вашей собственной сигнатурой: Чем ниже тем лучше!
