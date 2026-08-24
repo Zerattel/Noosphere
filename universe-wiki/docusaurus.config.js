@@ -62,7 +62,9 @@ const config = {
       },
       navbar: {
         title: 'NOOSPHERE — Hayat Sector Wiki',
+        
         logo: {
+          href: 'https://zerattel.github.io/Noosphere/main',
           alt: 'My Site Logo',
           src: 'img/hsrp.webp',
         },
@@ -74,7 +76,7 @@ const config = {
             label: 'Wiki',
           },
           {
-            href: 'https://github.com/facebook/docusaurus',
+            href: 'https://github.com/Zerattel/Noosphere',
             label: 'GitHub',
             position: 'right',
           },
@@ -84,7 +86,7 @@ const config = {
         theme: prismThemes.github,
         darkTheme: prismThemes.dracula,
       },
-      // ===== НОВОЕ: подключаем стили KaTeX =====
+
       stylesheets: [
         {
           href: 'https://cdn.jsdelivr.net/npm/katex@0.13.24/dist/katex.min.css',
