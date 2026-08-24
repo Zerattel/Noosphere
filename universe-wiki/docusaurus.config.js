@@ -6,17 +6,18 @@ import rehypeKatex from 'rehype-katex';
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: 'Noosphere Wiki',
-  tagline: 'Щеее',
+  tagline: 'База знаний и документация Hayat Sector RP',
   favicon: 'img/hsrpico.ico',
 
   future: { v4: true },
 
-  url: 'https://Zerattel.github.io',
-  baseUrl: '/Noosphere/',
+  url: 'https://zerattel.github.io',
+  // Динамический путь: корень для localhost, /Noosphere/ для GitHub Pages
+  baseUrl: process.env.NODE_ENV === 'development' ? '/' : '/Noosphere/',
 
   organizationName: 'Zerattel',
   projectName: 'Noosphere',
-  trailingSlash: false, // Рекомендуемая настройка для GitHub Pages
+  trailingSlash: false, 
 
   onBrokenLinks: 'warn',
 
@@ -33,7 +34,7 @@ const config = {
         docs: {
           routeBasePath: '/',
           sidebarPath: './sidebars.js',
-         remarkPlugins: [remarkMath],
+          remarkPlugins: [remarkMath],
           rehypePlugins: [rehypeKatex],
         },
         blog: false,
@@ -43,12 +44,12 @@ const config = {
       }),
     ],
   ],
+  
   stylesheets: [
     {
       href: 'https://cdn.jsdelivr.net/npm/katex@0.13.24/dist/katex.min.css',
       type: 'text/css',
-      integrity:
-        'sha384-odtC+0UGZ/qTGb2814/9OxlqqwKa/O23xZ32s/WOTxRjOaE99lC6vXzGgZ8b3L',
+      integrity: 'sha384-odtC+0UGZ/qTGb2814/9OxlqqwKa/O23xZ32s/WOTxRjOaE99lC6vXzGgZ8b3L',
       crossorigin: 'anonymous',
     },
   ],
@@ -56,9 +57,11 @@ const config = {
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
-      image: 'img/docusaurus-social-card.jpg',
+      image: 'img/embed-banner.png', // Твой кастомный эмбед
       colorMode: {
-        respectPrefersColorScheme: true,
+        defaultMode: 'dark', 
+        disableSwitch: true, 
+        respectPrefersColorScheme: false, 
       },
       navbar: {
         title: 'NOOSPHERE — Hayat Sector Wiki',
@@ -86,17 +89,8 @@ const config = {
         theme: prismThemes.github,
         darkTheme: prismThemes.dracula,
       },
-
-      stylesheets: [
-        {
-          href: 'https://cdn.jsdelivr.net/npm/katex@0.13.24/dist/katex.min.css',
-          integrity: 'sha384-odtC+0UGzzFL/6PNoE8rX/SPcQDXBJ+uRepguP4QkPCm2LBxH3FA3y+fKSiJ+AmM',
-          crossorigin: 'anonymous',
-        },
-      ],
-      
     }),
-    
 };
 
+// Экспортируем собранную переменную
 export default config;

@@ -1,0 +1,92 @@
+.sci-fi-box {
+  background-color: #151515;
+  border: 1px solid #ff8c00; 
+  padding: 20px;
+  margin: 15px 0;
+  clip-path: polygon(15px 0, 100% 0, 100% calc(100% - 15px), calc(100% - 15px) 100%, 0 100%, 0 15px);
+  filter: drop-shadow(0px 0px 8px rgba(255, 140, 0, 0.35));
+}
+
+.hazard-line {
+  height: 8px;
+  width: 100%;
+  margin: 25px 0;
+  background: repeating-linear-gradient(
+    45deg,
+    transparent,
+    transparent 10px,
+    #ff8c00 10px,
+    #ff8c00 20px
+  );
+  filter: drop-shadow(0 0 8px rgba(255, 140, 0, 1.0));
+}
+
+.sci-fi-infobox {
+  float: right; 
+  width: 35%; 
+  min-width: 250px; 
+  margin: 0 0 20px 20px; 
+  background-color: #111;
+  border: 1px solid #ff8c00;
+  padding: 15px;
+  clip-path: polygon(15px 0, 100% 0, 100% calc(100% - 15px), calc(100% - 15px) 100%, 0 100%, 0 15px);
+  filter: drop-shadow(0px 0px 10px rgba(255, 140, 0, 0.4));
+}
+
+.sci-fi-infobox img, 
+.sci-fi-infobox svg {
+  width: 100%; 
+  height: auto;
+  margin-bottom: 10px;
+  border-bottom: 2px solid #ff8c00; 
+}
+
+.img-left { float: left; margin: 0 20px 20px 0; }
+.img-right { float: right; margin: 0 0 20px 20px; }
+.w-25 { width: 25%; height: auto; }
+.w-50 { width: 50%; height: auto; }
+.w-75 { width: 75%; height: auto; }
+.w-100 { width: 100%; height: auto; }
+
+.video-responsive {
+  position: relative;
+  padding-bottom: 56.25%; 
+  height: 0;
+  overflow: hidden;
+  margin: 25px 0;
+  border: 1px solid #ff8c00; 
+  box-shadow: 0 0 15px rgba(255, 140, 0, 0.3);
+}
+
+/* --- СТИЛИЗАЦИЯ ТАБЛИЦ (SCI-FI) --- */
+html[data-theme='dark'] .markdown table {
+  clip-path: polygon(15px 0, 100% 0, 100% calc(100% - 15px), calc(100% - 15px) 100%, 0 100%, 0 15px);
+  border-collapse: collapse;
+  border: 1px solid rgba(255, 140, 0, 0.4);
+  background-color: #000000;
+  margin: 20px 0;
+}
+
+html[data-theme='dark'] .markdown table th,
+html[data-theme='dark'] .markdown table td {
+  border: 1px solid rgba(255, 140, 0, 0.15) !important;
+  padding: 10px 15px;
+}
+
+html[data-theme='dark'] .markdown table thead tr {
+  background-color: rgba(255, 140, 0, 0.1) !important;
+  border-bottom: 2px solid #ff8c00 !important;
+}
+
+html[data-theme='dark'] .markdown table tbody tr:nth-child(odd) {
+  background-color: #000000 !important;
+}
+
+html[data-theme='dark'] .markdown table tbody tr:nth-child(even) {
+  background-color: rgba(255, 140, 0, 0.08) !important;
+}
+
+html[data-theme='dark'] .markdown table tbody tr:hover {
+  background-color: rgba(255, 140, 0, 0.15) !important;
+  transition: background-color 0.2s ease;
+}

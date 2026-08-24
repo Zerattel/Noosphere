@@ -1,0 +1,77 @@
+:root[data-theme='dark'] {
+  --ifm-font-family-base: 'Exo 2', sans-serif;
+  --ifm-font-color-base: #e0e0e0;
+  
+  --ifm-background-color: #000000;
+  --ifm-background-surface-color: #000000; 
+  --ifm-navbar-background-color: #000000;  
+  --ifm-footer-background-color: #000000;  
+  --ifm-menu-color-background-active: rgba(255, 140, 0, 0.1); 
+  
+  --ifm-link-color: #ff8c00; 
+  --ifm-link-hover-color: #ffaa33; 
+  --ifm-link-decoration: none;
+
+  --ifm-color-primary: #ff8c00;
+  --ifm-color-primary-dark: #e67e00;
+  --ifm-color-primary-darker: #d97700;
+  --ifm-color-primary-darkest: #b36200;
+  --ifm-color-primary-light: #ff981a;
+  --ifm-color-primary-lighter: #ff9e2b;
+  --ifm-color-primary-lightest: #ffb15e;
+
+  --ifm-global-radius: 0px;
+  --ifm-button-border-radius: 0px;
+}
+
+html[data-theme='dark'] body,
+html[data-theme='dark'] .main-wrapper,
+html[data-theme='dark'] .navbar,
+html[data-theme='dark'] .footer {
+  background-color: #000000 !important;
+}
+
+/* --- СЕПАРАТОР ДЛЯ НАВИГАЦИОННОЙ ПАНЕЛИ --- */
+html[data-theme='dark'] .navbar::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 3px; 
+  background: repeating-linear-gradient(
+    45deg,
+    transparent,
+    transparent 10px,
+    rgba(255, 140, 0, 0.25) 10px,
+    rgba(255, 140, 0, 0.25) 20px
+  );
+  box-shadow: 0 4px 15px rgba(255, 140, 0, 0.15);
+  z-index: 100;
+  pointer-events: none; 
+}
+
+/* --- БОКОВОЕ МЕНЮ (САЙДБАР) --- */
+html[data-theme='dark'] .theme-doc-sidebar-container {
+  border-right: none !important;
+  position: relative;
+}
+
+html[data-theme='dark'] .theme-doc-sidebar-container::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  width: 3px; 
+  background: repeating-linear-gradient(
+    -45deg,
+    transparent,
+    transparent 10px,
+    rgba(255, 140, 0, 0.25) 10px,
+    rgba(255, 140, 0, 0.25) 20px
+  );
+  box-shadow: 4px 0 15px rgba(255, 140, 0, 0.15);
+  pointer-events: none;
+  z-index: 100;
+}
