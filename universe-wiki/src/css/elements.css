@@ -57,7 +57,13 @@
   border: 1px solid #ff8c00; 
   box-shadow: 0 0 15px rgba(255, 140, 0, 0.3);
 }
-
+.video-responsive iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
 /* --- СТИЛИЗАЦИЯ ТАБЛИЦ (SCI-FI) --- */
 html[data-theme='dark'] .markdown table {
   clip-path: polygon(15px 0, 100% 0, 100% calc(100% - 15px), calc(100% - 15px) 100%, 0 100%, 0 15px);
