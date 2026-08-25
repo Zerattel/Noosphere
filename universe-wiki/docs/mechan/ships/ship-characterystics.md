@@ -8,6 +8,8 @@
 - Характеристики вашего корабля из статьи справки о типе вашего корабля!
 </div>
 
+# Характеристики зависимые от тоннажа
+
 | Тоннаж | Ускорение (ΔV/ход) | Манёвренность | Трюм (м³) | Дальность контакта | Разрешение сенсоров |
 | :--- | :---: | :---: | :---: | :---: | :---: |
 | <img src={require('@site/static/img/tonnage/Isis_shuttle.png').default} width="32" height="auto" style={{ verticalAlign: 'middle', marginRight: '4px' }} /> **Шаттл** | 240 | +5 | 5 | 5 км | 15 м |
@@ -25,7 +27,8 @@
 > <span class="highlight">Важно:</span> *Разрешение* корабля для удобства выражено сразу в размере **ожидаемой** сигнатуры цели, т.е. точно так же как и с вашей собственной сигнатурой: Чем ниже тем лучше!
 <div class="hazard-line"></div>
 
-Остальные характеристики кораблей:
+# Остальные характеристики кораблей
+
 | Характеристика | <img src={require('@site/static/img/tonnage/unknown-mission.png').default} width="64" height="auto" style={{ verticalAlign: 'middle', marginRight: '4px' }} /> **Объяснение:** |
 | :--- | :---: |
 | <img src={require('@site/static/img/tonnage/Icon_damage_therm.png').default} width="32" height="auto" style={{ verticalAlign: 'middle', marginRight: '4px' }} /> Температура (%) | То, насколько нагрет ваш корабль. |

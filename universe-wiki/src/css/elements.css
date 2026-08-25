@@ -41,6 +41,52 @@
   border-bottom: 2px solid #ff8c00; 
 }
 
+.infobox-title {
+  text-align: center;
+  font-weight: 700;
+  font-size: 1.2rem;
+  color: #ffdba5; /* Бледно-оранжевый для акцента */
+  margin-bottom: 15px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Уменьшенная хазард-линия для разделителей внутри блоков */
+.hazard-line-mini {
+  height: 4px; /* В два раза тоньше */
+  width: 100%;
+  margin: 15px 0;
+  background: repeating-linear-gradient(
+    45deg,
+    transparent,
+    transparent 5px,
+    #ff8c00 5px,
+    #ff8c00 10px
+  );
+  filter: drop-shadow(0 0 4px rgba(255, 140, 0, 0.8));
+}
+
+/* Невидимая таблица 2 на X */
+.infobox-grid {
+  display: grid;
+  grid-template-columns: 45% 55%; /* Левая колонка чуть уже, правая шире */
+  gap: 8px 10px; /* Отступы между строками и колонками */
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+/* Ключ (название характеристики) */
+.infobox-label {
+  font-weight: 700;
+  color: #a0a0a0; /* Серый терминальный цвет, чтобы не отвлекать от значений */
+}
+
+/* Значение характеристики */
+.infobox-value {
+  color: #e0e0e0;
+  text-align: left;
+}
+
 .img-left { float: left; margin: 0 20px 20px 0; }
 .img-right { float: right; margin: 0 0 20px 20px; }
 .w-25 { width: 25%; height: auto; }
@@ -71,6 +117,8 @@ html[data-theme='dark'] .markdown table {
   border: 1px solid rgba(255, 140, 0, 0.4);
   background-color: #000000;
   margin: 20px 0;
+  width: max-content !important; /* Принудительно сужаем фон до ширины текста */
+  max-width: 100%; /* Защита, чтобы широкие таблицы не ломали экран на телефонах */
 }
 
 html[data-theme='dark'] .markdown table th,
