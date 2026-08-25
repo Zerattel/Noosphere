@@ -3,8 +3,7 @@
 <div className="sci-fi-infobox">
   <div className="infobox-title">Алые Сектанты</div>
   <div className="hazard-line-mini"></div>
-  <img src="/img/lore/crimsonlake.png" alt="" />
-  
+  <img src={require('@site/static/img/lore/crimsonlake.png').default} />
   
   <div className="infobox-grid">
     <div className="infobox-label">Вид деятельности:</div>
