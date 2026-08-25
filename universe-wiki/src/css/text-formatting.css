@@ -48,3 +48,33 @@
 }
 
 .katex-html { display: none; }
+
+/* --- ЛОКАЛЬНЫЕ КАСТОМНЫЕ ШРИФТЫ --- */
+
+@font-face {
+  font-family: 'Triglavian';
+  /* Обрати внимание на путь: ./ означает текущую папку (src/css/) */
+  src: url('./fonts/TriglavianTrue.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Viner Hand';
+  src: url('./fonts/VinerHand.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* --- КЛАССЫ ДЛЯ ОФОРМЛЕНИЯ ТЕКСТА --- */
+
+.font-triglavian {
+  font-family: 'Triglavian', sans-serif !important;
+  color: #ff3333; /* Например, сделаем его агрессивно-красным по умолчанию */
+  letter-spacing: 1px;
+}
+
+.font-viner {
+  font-family: 'Viner Hand', cursive !important;
+  font-size: 1.1em; /* Рукописные шрифты часто кажутся мельче обычных, можно чуть увеличить */
+}

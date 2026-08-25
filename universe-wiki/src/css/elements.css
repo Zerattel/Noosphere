@@ -5,6 +5,7 @@
   margin: 15px 0;
   clip-path: polygon(15px 0, 100% 0, 100% calc(100% - 15px), calc(100% - 15px) 100%, 0 100%, 0 15px);
   filter: drop-shadow(0px 0px 8px rgba(255, 140, 0, 0.35));
+  display: flow-root;
 }
 
 .hazard-line {
@@ -66,6 +67,18 @@
   filter: drop-shadow(0 0 4px rgba(255, 140, 0, 0.8));
 }
 
+.infobox-grid img,
+.infobox-grid svg {
+  max-height: 32px !important; /* Жестко ограничиваем высоту. Всё, что больше, сожмётся до 32px */
+  width: auto !important; /* Автоматически сохраняем правильные пропорции (не сплющит) */
+  border-bottom: none !important;
+  
+  /* Отрицательные отступы гасят физическую высоту картинки, чтобы не ехали строки */
+  margin: -12px 6px -12px 0 !important; 
+  display: inline-block !important;
+  vertical-align: middle !important;
+}
+
 /* Невидимая таблица 2 на X */
 .infobox-grid {
   display: grid;
@@ -78,6 +91,7 @@
 /* Ключ (название характеристики) */
 .infobox-label {
   font-weight: 700;
+  text-align: left;
   color: #a0a0a0; /* Серый терминальный цвет, чтобы не отвлекать от значений */
 }
 
