@@ -3,7 +3,7 @@
 <div className="sci-fi-box" style={{ padding: '15px' }}>
   <strong>[ ОЗВУЧЕННАЯ СТАТЬЯ СПРАВКИ: ]</strong>
   <audio controls style={{ width: '100%', marginTop: '10px' }}>
-    <source src="/audio/history.mp3" type="audio/mpeg" />
+    <source src={require('@site/static/audio/history.mp3').default} type="audio/mpeg" />
     Ваш браузер не поддерживает аудио-элемент.
   </audio>
 </div>
