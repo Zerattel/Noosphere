@@ -10,10 +10,10 @@
     <div className="infobox-value"><img src={require('@site/static/img/tonnage/Isis_cruiser.png').default} />Крейсер</div>
 
     <div className="infobox-label">Специализация:</div>
-    <div className="infobox-value"><img src={require('@site/static/img/tonnage/Icon_ISIS_Ecm.png').default} />РЭБ (радиоэлектронная борьба)</div>
+    <div className="infobox-value"><img src={require('@site/static/img/tonnage/Icon_ISIS_Ecm.png').default} />РЭБ</div>
     
     <div className="infobox-label">Производитель:</div>
-    <div className="infobox-value">Gleele Confederation (ВСГК)</div>
+    <div className="infobox-value">Gleele Confederation</div>
 
     <div className="infobox-label"><img src={require('@site/static/img/tonnage/32px-Icon_fit_dps.png').default} />Внешн. ОМ:</div>
     <div className="infobox-value">4</div>

@@ -13,7 +13,7 @@
     <div className="infobox-value"><img src={require('@site/static/img/tonnage/Icon_ISIS_Exploration.png').default} />Разведывательный</div>
     
     <div className="infobox-label">Производитель:</div>
-    <div className="infobox-value">ВСГК Глеель</div>
+    <div className="infobox-value">Gleele Confederation</div>
 
     <div className="infobox-label"><img src={require('@site/static/img/tonnage/32px-Icon_fit_dps.png').default} />Внешн. ОМ:</div>
     <div className="infobox-value">2</div>

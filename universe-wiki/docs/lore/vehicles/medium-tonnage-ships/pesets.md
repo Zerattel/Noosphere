@@ -10,7 +10,7 @@
     <div className="infobox-value"><img src={require('@site/static/img/tonnage/Isis_cruiser.png').default} />Крейсер</div>
 
     <div className="infobox-label">Специализация:</div>
-    <div className="infobox-value"><img src={require('@site/static/img/tonnage/Icon_ISIS_Combat.png').default} />Лазерный / Энергетический</div>
+    <div className="infobox-value"><img src={require('@site/static/img/tonnage/Icon_ISIS_Combat.png').default} />Наступательный</div>
     
     <div className="infobox-label">Производитель:</div>
     <div className="infobox-value">ARES</div>

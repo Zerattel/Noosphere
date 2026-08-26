@@ -10,10 +10,10 @@
     <div className="infobox-value"><img src={require('@site/static/img/tonnage/Isis_cruiser.png').default} />Крейсер</div>
 
     <div className="infobox-label">Специализация:</div>
-    <div className="infobox-value"><img src={require('@site/static/img/tonnage/Icon_ISIS_Support.png').default} />Культовый / Поддержка</div>
+    <div className="infobox-value"><img src={require('@site/static/img/tonnage/Icon_ISIS_Support.png').default} />Ритуальный</div>
     
     <div className="infobox-label">Производитель:</div>
-    <div className="infobox-value">Багровый культ</div>
+    <div className="infobox-value">[Алые Сектанты](lore/world/factions/crimsonlake.md)</div>
 
     <div className="infobox-label"><img src={require('@site/static/img/tonnage/32px-Icon_fit_dps.png').default} />Внешн. ОМ:</div>
     <div className="infobox-value">12</div>
@@ -46,10 +46,10 @@
 </div>
 <div className="sci-fi-box">
 <strong>Профильные особенности кораблей этого типа:</strong><br/><br/>
-🟢 - Паразитная зарядка накопителя (способность)
+🟢 - На корабль может быть установлено до 2 установок паразитной подзарядки накопителя размера M или S без затрат ОМ
 </div>
 
-## Крейсер [багрового культа](lore/world/factions/crimsonlake.md) «Чума».
+## Крейсер [Алых Сектантов](lore/world/factions/crimsonlake.md) «Чума».
 
 > *«И коль свет душам нашим впредь не предначертан, не дадим неверным осквернить наших идей.*
 > *Ибо души их мертвы давно, поверьте, и панихиду петь им будет свет губительных огней.*
