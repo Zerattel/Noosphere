@@ -7,7 +7,7 @@
   
   <div className="infobox-grid">
     <div className="infobox-label">Государственный строй:</div>
-    <div className="infobox-value">Корпоратократия; Олигархия; Неграсно Анкап</div>
+    <div className="infobox-value">Корпоратократия; Олигархия; Негласно Анкап</div>
     
     <div className="infobox-label">Сфера притязаний:</div>
     <div className="infobox-value">Территории бывшего ЦЧА; северные созвездия.</div>
