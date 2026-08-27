@@ -1,4 +1,4 @@
-# Альянс «Noble Coalition»
+# NC Noble Coalition Alliance
 <div className="hazard-line"></div>
 <div className="sci-fi-infobox">
   <div className="infobox-title">Noble Coalition</div>
@@ -6,8 +6,8 @@
   <img src={require('@site/static/img/lore/noblecoalition.png').default} />
   
   <div className="infobox-grid">
-    <div className="infobox-label">Вид деятельности:</div>
-    <div className="infobox-value">Сверхдержава; Альянс мегакорпораций</div>
+    <div className="infobox-label">Государственный строй:</div>
+    <div className="infobox-value">Корпоратократия; Олигархия; Неграсно Анкап</div>
     
     <div className="infobox-label">Сфера притязаний:</div>
     <div className="infobox-value">Территории бывшего ЦЧА; северные созвездия.</div>

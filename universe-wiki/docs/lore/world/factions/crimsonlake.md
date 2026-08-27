@@ -1,4 +1,4 @@
-# Алые Сектанты
+# СС Алые Сектанты
 <div className="hazard-line"></div>
 <div className="sci-fi-infobox">
   <div className="infobox-title">Алые Сектанты</div>

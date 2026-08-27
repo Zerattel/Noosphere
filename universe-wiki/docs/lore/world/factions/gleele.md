@@ -1,4 +1,4 @@
-# Глиильская Конфедерация
+# GC Gleele Confederation
 <div className="hazard-line"></div>
 <div className="sci-fi-infobox">
   <div className="infobox-title">Глиильская Конфедерация</div>
@@ -6,8 +6,8 @@
   <img src={require('@site/static/img/lore/terran.png').default} />
   
   <div className="infobox-grid">
-    <div className="infobox-label">Вид деятельности:</div>
-    <div className="infobox-value">Государство; Сверхдержава</div>
+    <div className="infobox-label">Государственный строй:</div>
+    <div className="infobox-value">Демократия</div>
     
     <div className="infobox-label">Сфера притязаний:</div>
     <div className="infobox-value">7 конфедератов (Созвездий)</div>
