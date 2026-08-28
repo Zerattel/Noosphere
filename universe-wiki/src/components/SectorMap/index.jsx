@@ -18,6 +18,8 @@ export default function SectorMap() {
     useBaseUrl('/sounds/map_hover_4.wav'),
   ];
   const warpSoundUrl = useBaseUrl('/sounds/map_warp_01.wav');
+  const zoomInSoundUrl = useBaseUrl('/sounds/map_zoomin_0.wav');
+  const zoomOutSoundUrl = useBaseUrl('/sounds/map_zoomout_0.wav');
   
   const [svgContent, setSvgContent] = useState('');
   const [currentZoomLevel, setCurrentZoomLevel] = useState('sector'); 
@@ -62,6 +64,14 @@ export default function SectorMap() {
     const audio = new Audio(randomSound);
     audio.volume = 0.5;
     audio.play().catch(() => {}); // Игнорируем ошибки автоплея браузера
+  };
+
+  const playZoomInSound = () => {
+    new Audio(zoomInSoundUrl).play().catch(() => {});
+  };
+
+  const playZoomOutSound = () => {
+    new Audio(zoomOutSoundUrl).play().catch(() => {});
   };
 
   const handleMouseMove = (event) => {
@@ -120,7 +130,7 @@ export default function SectorMap() {
             tooltipRef.current.classList.add(styles.tooltipVisible);
             playHoverSound();
           }
-        }, 1000);
+        }, 500);
       }
     }
   };
@@ -151,20 +161,27 @@ export default function SectorMap() {
       setActiveConstellation(name);
       setCurrentZoomLevel('constellation');
       hideTooltip();
+      playZoomInSound();
 
       if (zoomToElement) zoomToElement(target, 3, 800);
+
+      // Показываем имена звёзд этого созвездия (см. пункт про constellationtitles)
+      const titlesGroup = document.querySelector(`#titles_${name}`);
+      if (titlesGroup) titlesGroup.classList.add(styles.activeTitles);
     }
     else if (category === 'system' && currentZoomLevel === 'constellation') {
       event.preventDefault();
       hideTooltip();
+
+      if (zoomToElement) zoomToElement(target, 8, 800, 'easeInQuad');
+
       setIsWarping(true);
 
       const warpAudio = new Audio(warpSoundUrl);
       warpAudio.play().catch(() => {});
 
-      // Ждем завершения CSS-анимации варпа, затем переходим на страницу
       setTimeout(() => {
-        history.push(`/docs/system-stub?system=${name}`);
+        history.push(`/lore/systems/${name}`);
       }, 800);
     }
   };
@@ -191,8 +208,15 @@ export default function SectorMap() {
               <button 
                 className={styles.backButton} 
                 onClick={() => { 
+                  playZoomOutSound();
                   resetTransform(800); 
                   setCurrentZoomLevel('sector'); 
+
+                  if (activeConstellation) {
+                    const titlesGroup = document.querySelector(`#titles_${activeConstellation}`);
+                    if (titlesGroup) titlesGroup.classList.remove(styles.activeTitles);
+                  }
+
                   setActiveConstellation(null); 
                   hideTooltip();
                 }}

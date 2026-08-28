@@ -34,10 +34,11 @@
 
 /* 2. Скрываем хитбоксы звёзд навсегда (слой "Hitboxes") */
 .svgContainer :global(#Hitboxes [id^="hitbox_"]),
-.svgContainer :global(#Hitboxes [id^="hitbox-"]) {
-  fill: transparent !important;
-  stroke: none !important;
-  opacity: 0;
+.svgContainer :global(#Hitboxes [id^="hitbox-"]),
+.svgContainer :global(#Hitboxes_constellations [id^="hitbox_"]),
+.svgContainer :global(#Hitboxes_constellations [id^="hitbox-"]) {
+  fill: transparent;
+  stroke: none;
 }
 
 /* 3. Подсветка созвездия (фоллбек, если нет кастомного слоя) */
@@ -57,6 +58,30 @@
 .highlightedConstellation {
   opacity: 1 !important;
   filter: drop-shadow(0 0 8px rgb(255, 145, 0));
+}
+
+/* 5. Подписи созвездий и звёзд (группа "constellationtitles" в Figma) */
+.svgContainer :global(#constellationtitles) {
+  pointer-events: none; /* подписи никогда не перехватывают клики/наведение */
+}
+
+/* На уровне сектора видно только название самого созвездия */
+.svgContainer :global([id^="constellationtitle_"]) {
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+.viewLevelConstellation :global([id^="constellationtitle_"]) {
+  opacity: 0;
+}
+
+/* Имена звёзд по умолчанию спрятаны — показываем только у активного
+   созвездия через JS-класс .activeTitles (см. index.jsx) */
+.svgContainer :global([id^="titles_"]) {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.activeTitles {
+  opacity: 1 !important;
 }
 
 /* Кнопка отмены фокуса */
@@ -129,20 +154,22 @@
   box-shadow: 0 0 5px #ff8c00;
 }
 
-/* Контейнер текста "сидит" ровно на горизонтальной линии */
+/* Якорь на уровне горизонтальной линии — сам по себе нулевого размера,
+   заголовок и описание крепятся к нему уже независимо друг от друга */
 .tooltipContent {
   position: absolute;
   left: 17px;   /* Совпадает с началом горизонтальной линии */
-  bottom: 18px; /* Приподнят на 1px над линией */
+  bottom: 18px; /* Ровно на высоте линии */
   width: 210px;
-  padding: 0 12px 6px 12px;
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
   z-index: 2;
 }
 
+/* Заголовок отталкивается от якоря ВВЕРХ — оказывается над линией */
 .tooltipTitle {
+  position: absolute;
+  left: 12px;
+  right: 12px;
+  bottom: 4px; /* зазор над линией */
   font-family: monospace;
   font-weight: bold;
   color: #ff8c00;
@@ -152,7 +179,12 @@
   margin: 0;
 }
 
+/* Описание отталкивается от того же якоря ВНИЗ — оказывается под линией */
 .tooltipDesc {
+  position: absolute;
+  left: 12px;
+  right: 12px;
+  top: 4px; /* зазор под линией */
   font-family: sans-serif;
   color: #cfd8dc;
   font-size: 0.8rem;
