@@ -181,7 +181,7 @@ export default function SectorMap() {
       warpAudio.play().catch(() => {});
 
       setTimeout(() => {
-        history.push(`/lore/systems/${name}`);
+        history.push(`/Noosphere/lore/systems/${name}`);
       }, 800);
     }
   };
