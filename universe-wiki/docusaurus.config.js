@@ -79,6 +79,11 @@ const config = {
             label: 'Wiki',
           },
           {
+            to: '/map',          // Путь к нашей созданной странице
+            label: 'Карта Сектора', // Текст на кнопке
+            position: 'left',    // Слева или справа (right)
+          },
+          {
             href: 'https://github.com/Zerattel/Noosphere',
             label: 'GitHub',
             position: 'right',

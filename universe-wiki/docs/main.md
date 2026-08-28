@@ -1,5 +1,6 @@
 ---
 title: Главная
+sidebar_position: 1
 ---
 <div class="hazard-line"></div>
 

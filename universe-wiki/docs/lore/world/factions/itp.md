@@ -1,7 +1,7 @@
 # ITP INTERPOL
 <div className="hazard-line"></div>
 <div className="sci-fi-infobox">
-  <div className="infobox-title">Кластеры Автоматонов</div>
+  <div className="infobox-title">Интерпол</div>
   <div className="hazard-line-mini"></div>
   <img src={require('@site/static/img/lore/itp.png').default} />
   
