@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { useHistory } from '@docusaurus/router';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 import { TransformWrapper, TransformComponent } from 'react-zoom-pan-pinch';
@@ -10,10 +10,26 @@ export default function SectorMap() {
   const history = useHistory();
   const mapUrl = useBaseUrl('/img/map.svg');
   
+  // Предзагрузка путей для аудио (положи файлы в static/sounds/)
+  const hoverSounds = [
+    useBaseUrl('/sounds/map_hover_1.wav'),
+    useBaseUrl('/sounds/map_hover_2.wav'),
+    useBaseUrl('/sounds/map_hover_3.wav'),
+    useBaseUrl('/sounds/map_hover_4.wav'),
+  ];
+  const warpSoundUrl = useBaseUrl('/sounds/map_warp_01.wav');
+  
   const [svgContent, setSvgContent] = useState('');
   const [currentZoomLevel, setCurrentZoomLevel] = useState('sector'); 
   const [activeConstellation, setActiveConstellation] = useState(null);
-  const [tooltip, setTooltip] = useState({ visible: false, x: 0, y: 0, title: '', desc: '' });
+  const [isWarping, setIsWarping] = useState(false);
+
+  // Рефы для прямых DOM-манипуляций тултипа (убираем лаги анимаций карты)
+  const tooltipRef = useRef(null);
+  const tooltipTitleRef = useRef(null);
+  const tooltipDescRef = useRef(null);
+  const hoverTimerRef = useRef(null);
+  const currentHoverIdRef = useRef(null);
 
   useEffect(() => {
     fetch(mapUrl)
@@ -22,7 +38,6 @@ export default function SectorMap() {
       .catch((err) => console.error('Ошибка загрузки карты:', err));
   }, [mapUrl]);
 
-  // Универсальный поиск: ищет ID и на <g>, и на <rect>, <path> и т.д.
   const getHitboxTarget = (element) => element?.closest('[id^="hitbox_"], [id^="hitbox-"]');
 
   const getHitboxCategory = (hitboxEl) => {
@@ -34,45 +49,84 @@ export default function SectorMap() {
 
   const getHitboxName = (hitboxEl) => hitboxEl.id.replace(/^hitbox[_-]/, '');
 
+  const hideTooltip = () => {
+    clearTimeout(hoverTimerRef.current);
+    if (tooltipRef.current) {
+      tooltipRef.current.classList.remove(styles.tooltipVisible);
+    }
+    currentHoverIdRef.current = null;
+  };
+
+  const playHoverSound = () => {
+    const randomSound = hoverSounds[Math.floor(Math.random() * hoverSounds.length)];
+    const audio = new Audio(randomSound);
+    audio.volume = 0.5;
+    audio.play().catch(() => {}); // Игнорируем ошибки автоплея браузера
+  };
+
   const handleMouseMove = (event) => {
+    if (isWarping) return;
+
+    // Прямое обновление координат без ререндера React
+    if (tooltipRef.current) {
+      const rect = event.currentTarget.getBoundingClientRect();
+      const cursorX = event.clientX - rect.left;
+      const cursorY = event.clientY - rect.top;
+      // Смещение вправо на 25px и вверх на 35px, как было задумано
+      tooltipRef.current.style.transform = `translate(${cursorX + 25}px, ${cursorY - 35}px)`;
+    }
+
     const target = getHitboxTarget(event.target);
     const category = getHitboxCategory(target);
 
     if (!target || !category) {
-      if (tooltip.visible) setTooltip(prev => ({ ...prev, visible: false }));
+      hideTooltip();
       return;
     }
 
     const name = getHitboxName(target);
-    const rect = event.currentTarget.getBoundingClientRect();
-    const cursorX = event.clientX - rect.left;
-    const cursorY = event.clientY - rect.top;
+    const hitboxId = `${category}_${name}`;
 
-    // Наведение на звезду — только когда приближено нужное созвездие
-    if (category === 'system' && currentZoomLevel === 'constellation') {
-      const data = mapData['system_' + name];
-      if (data) {
-        setTooltip({ visible: true, x: cursorX, y: cursorY, title: data.title, desc: data.description });
-      }
-      // Хитбоксы звёзд намеренно никогда не подсвечиваются
+    // Проверяем соответствие текущему уровню зума
+    const isValidTarget = 
+      (category === 'system' && currentZoomLevel === 'constellation') ||
+      (category === 'constellation' && currentZoomLevel === 'sector');
+
+    if (!isValidTarget) {
+      hideTooltip();
+      return;
     }
-    // Наведение на созвездие — только на карте сектора
-    else if (category === 'constellation' && currentZoomLevel === 'sector') {
-      const customView = document.querySelector(`#constellation_view_${name}`);
-      if (customView) customView.classList.add(styles.highlightedConstellation);
-      else target.classList.add(styles.highlightedHitbox);
 
-      const data = mapData['constellations_' + name];
-      if (data) {
-        setTooltip({ visible: true, x: cursorX, y: cursorY, title: data.title, desc: data.description });
+    // Если навели на новую цель (созвездие или звезду)
+    if (currentHoverIdRef.current !== hitboxId) {
+      hideTooltip(); // Скрываем предыдущий
+      currentHoverIdRef.current = hitboxId;
+      
+      const dataKey = category === 'system' ? 'system_' + name : 'constellations_' + name;
+      const data = mapData[dataKey];
+
+      if (category === 'constellation') {
+        const customView = document.querySelector(`#constellation_view_${name}`);
+        if (customView) customView.classList.add(styles.highlightedConstellation);
+        else target.classList.add(styles.highlightedHitbox);
       }
-    } else {
-      if (tooltip.visible) setTooltip(prev => ({ ...prev, visible: false }));
+
+      if (data) {
+        // Запускаем 1-секундную задержку
+        hoverTimerRef.current = setTimeout(() => {
+          if (tooltipTitleRef.current && tooltipDescRef.current && tooltipRef.current) {
+            tooltipTitleRef.current.innerText = data.title;
+            tooltipDescRef.current.innerText = data.description;
+            tooltipRef.current.classList.add(styles.tooltipVisible);
+            playHoverSound();
+          }
+        }, 1000);
+      }
     }
   };
 
   const handleMouseOut = (event) => {
-    setTooltip(prev => ({ ...prev, visible: false }));
+    hideTooltip();
     const target = getHitboxTarget(event.target);
     const category = getHitboxCategory(target);
 
@@ -85,6 +139,8 @@ export default function SectorMap() {
   };
 
   const handleClick = (event, zoomToElement) => {
+    if (isWarping) return;
+    
     const target = getHitboxTarget(event.target);
     const category = getHitboxCategory(target);
     if (!target || !category) return;
@@ -94,19 +150,31 @@ export default function SectorMap() {
     if (category === 'constellation' && currentZoomLevel === 'sector') {
       setActiveConstellation(name);
       setCurrentZoomLevel('constellation');
-      setTooltip(prev => ({ ...prev, visible: false }));
+      hideTooltip();
 
-      // Плавный кинематографичный наезд (зум x3, длительность 800мс)
       if (zoomToElement) zoomToElement(target, 3, 800);
     }
     else if (category === 'system' && currentZoomLevel === 'constellation') {
-      history.push(`/docs/system-stub?system=${name}`);
+      event.preventDefault();
+      hideTooltip();
+      setIsWarping(true);
+
+      const warpAudio = new Audio(warpSoundUrl);
+      warpAudio.play().catch(() => {});
+
+      // Ждем завершения CSS-анимации варпа, затем переходим на страницу
+      setTimeout(() => {
+        history.push(`/docs/system-stub?system=${name}`);
+      }, 800);
     }
   };
 
   return (
     <div 
-      className={styles.mapWrapper} 
+      className={clsx(
+        styles.mapWrapper,
+        isWarping && styles.warpActive
+      )} 
       onMouseMove={handleMouseMove}
       onMouseOut={handleMouseOut}
     >
@@ -115,20 +183,18 @@ export default function SectorMap() {
         minScale={1} 
         maxScale={10} 
         limitToBounds={true}
-        // Запрещаем перехват клика, если мышь не сдвинулась (различает клик и паннинг)
         doubleClick={{ disabled: true }} 
       >
         {({ zoomToElement, resetTransform }) => (
           <>
-            {currentZoomLevel === 'constellation' && (
+            {currentZoomLevel === 'constellation' && !isWarping && (
               <button 
                 className={styles.backButton} 
-                style={{ display: currentZoomLevel === 'constellation' ? 'block' : 'none' }}
                 onClick={() => { 
                   resetTransform(800); 
                   setCurrentZoomLevel('sector'); 
                   setActiveConstellation(null); 
-                  setTooltip(prev => ({...prev, visible: false}));
+                  hideTooltip();
                 }}
               >
                 ОТМЕНИТЬ ФОКУС
@@ -137,7 +203,11 @@ export default function SectorMap() {
             
             <TransformComponent wrapperClass={styles.transformWrapper}>
               <div 
-                className={styles.svgContainer}
+                // Динамически применяем класс для блокировки слоев
+                className={clsx(
+                  styles.svgContainer, 
+                  currentZoomLevel === 'sector' ? styles.viewLevelSector : styles.viewLevelConstellation
+                )}
                 onClick={(e) => handleClick(e, zoomToElement)}
                 dangerouslySetInnerHTML={{ __html: svgContent }}
               />
@@ -146,16 +216,14 @@ export default function SectorMap() {
         )}
       </TransformWrapper>
 
-      <div 
-        className={clsx(styles.tooltip, tooltip.visible && styles.tooltipVisible)}
-        style={{ left: tooltip.x, top: tooltip.y }}
-      >
+      {/* Тултип вынесен из состояния React, управляется через DOM (Ref) */}
+      <div className={styles.tooltip} ref={tooltipRef}>
         <div className={styles.tooltipLine}></div>
         <div className={styles.tooltipContent}>
-          <div className={styles.tooltipTitle}>{tooltip.title}</div>
-          <div className={styles.tooltipDesc}>{tooltip.desc}</div>
+          <div className={styles.tooltipTitle} ref={tooltipTitleRef}></div>
+          <div className={styles.tooltipDesc} ref={tooltipDescRef}></div>
         </div>
       </div>
     </div>
   );
-} 
+}

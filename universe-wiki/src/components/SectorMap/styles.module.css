@@ -87,7 +87,9 @@
   opacity: 0;
   transition: opacity 0.2s ease-out;
   z-index: 100;
-  transform: translate(25px, -35px); /* Смещение от курсора */
+  left: 0;
+  top: 0;
+  /* Смещение (translate) теперь задается динамически через JS, чтобы не было лагов */
 }
 
 .tooltipVisible {
@@ -96,10 +98,12 @@
 
 .tooltipLine {
   position: absolute;
-  left: -20px;
-  top: 35px;
+  left: 0;
+  top: 0;
+  z-index: 1;
 }
 
+/* Диагональная линия от курсора */
 .tooltipLine::before {
   content: "";
   position: absolute;
@@ -113,34 +117,39 @@
   box-shadow: 0 0 5px #ff8c00;
 }
 
+/* Горизонтальная линия */
 .tooltipLine::after {
   content: "";
   position: absolute;
-  left: 17px; /* Сдвиг после угла */
-  bottom: 17px;
+  left: 17px;   /* Конец диагонали по оси X */
+  bottom: 17px; /* Конец диагонали по оси Y */
   width: 220px;
   height: 2px;
   background: #ff8c00;
   box-shadow: 0 0 5px #ff8c00;
 }
 
+/* Контейнер текста "сидит" ровно на горизонтальной линии */
 .tooltipContent {
-  position: relative;
-  left: 20px;
-  bottom: 5px;
+  position: absolute;
+  left: 17px;   /* Совпадает с началом горизонтальной линии */
+  bottom: 18px; /* Приподнят на 1px над линией */
   width: 210px;
-  padding: 8px 12px;
+  padding: 0 12px 6px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  z-index: 2;
 }
 
 .tooltipTitle {
   font-family: monospace;
   font-weight: bold;
   color: #ff8c00;
-  bottom: 5px;
   font-size: 1rem;
-  margin-bottom: 2px;
   text-transform: uppercase;
-  line-height: 0.5;
+  line-height: 1;
+  margin: 0;
 }
 
 .tooltipDesc {
@@ -148,4 +157,30 @@
   color: #cfd8dc;
   font-size: 0.8rem;
   line-height: 1.3;
+}
+
+/* --- Классы для контроля хитбоксов и варп-прыжка --- */
+
+/* На уровне сектора блокируем звезды */
+.viewLevelSector :global(#Hitboxes [id^="hitbox_"]),
+.viewLevelSector :global(#Hitboxes [id^="hitbox-"]) {
+  pointer-events: none !important;
+}
+
+/* На уровне созвездия блокируем другие созвездия */
+.viewLevelConstellation :global(#Hitboxes_constellations [id^="hitbox_"]),
+.viewLevelConstellation :global(#Hitboxes_constellations [id^="hitbox-"]) {
+  pointer-events: none !important;
+}
+
+/* Анимация перехода (варп) */
+.warpActive {
+  animation: warpJump 0.8s cubic-bezier(0.55, 0.085, 0.68, 0.53) forwards;
+  pointer-events: none;
+}
+
+@keyframes warpJump {
+  0% { filter: blur(0px) brightness(1); transform: scale(1); opacity: 1; }
+  50% { filter: blur(4px) brightness(1.5); }
+  100% { filter: blur(20px) brightness(4); transform: scale(3) translateZ(100px); opacity: 0; }
 }
