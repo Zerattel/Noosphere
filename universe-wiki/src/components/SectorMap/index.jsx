@@ -23,41 +23,46 @@ export default function SectorMap() {
   }, [mapUrl]);
 
   // Универсальный поиск: ищет ID и на <g>, и на <rect>, <path> и т.д.
-  const getHitboxTarget = (element) => element?.closest('[id^="Hitboxes_"]');
+  const getHitboxTarget = (element) => element?.closest('[id^="hitbox_"], [id^="hitbox-"]');
+
+  const getHitboxCategory = (hitboxEl) => {
+    if (!hitboxEl) return null;
+    if (hitboxEl.closest('#Hitboxes_constellations')) return 'constellation';
+    if (hitboxEl.closest('#Hitboxes')) return 'system';
+    return null;
+  };
+
+  const getHitboxName = (hitboxEl) => hitboxEl.id.replace(/^hitbox[_-]/, '');
 
   const handleMouseMove = (event) => {
     const target = getHitboxTarget(event.target);
-    
-    if (!target) {
+    const category = getHitboxCategory(target);
+
+    if (!target || !category) {
       if (tooltip.visible) setTooltip(prev => ({ ...prev, visible: false }));
       return;
     }
 
-    const id = target.id;
-    // Координаты берем относительно внешнего контейнера карты, чтобы тултип не улетал при зуме
+    const name = getHitboxName(target);
     const rect = event.currentTarget.getBoundingClientRect();
     const cursorX = event.clientX - rect.left;
     const cursorY = event.clientY - rect.top;
 
-    // Логика: Наведение на звезду (только если мы уже приблизили созвездие)
-    if (id.startsWith('Hitboxes_system_') && currentZoomLevel === 'constellation') {
-      const systemKey = id.replace('Hitboxes_', '');
-      const data = mapData[systemKey];
+    // Наведение на звезду — только когда приближено нужное созвездие
+    if (category === 'system' && currentZoomLevel === 'constellation') {
+      const data = mapData['system_' + name];
       if (data) {
         setTooltip({ visible: true, x: cursorX, y: cursorY, title: data.title, desc: data.description });
       }
-    } 
-    // Логика: Наведение на созвездие (только на глобальной карте)
-    else if (id.startsWith('Hitboxes_constellations_') && currentZoomLevel === 'sector') {
-      const constName = id.replace('Hitboxes_constellations_', '');
-      
-      // Визуальная подсветка
-      const customView = document.querySelector(`#constellation_view_${constName}`);
+      // Хитбоксы звёзд намеренно никогда не подсвечиваются
+    }
+    // Наведение на созвездие — только на карте сектора
+    else if (category === 'constellation' && currentZoomLevel === 'sector') {
+      const customView = document.querySelector(`#constellation_view_${name}`);
       if (customView) customView.classList.add(styles.highlightedConstellation);
       else target.classList.add(styles.highlightedHitbox);
-      
-      // Тултип для созвездия
-      const data = mapData['constellations_' + constName];
+
+      const data = mapData['constellations_' + name];
       if (data) {
         setTooltip({ visible: true, x: cursorX, y: cursorY, title: data.title, desc: data.description });
       }
@@ -69,10 +74,11 @@ export default function SectorMap() {
   const handleMouseOut = (event) => {
     setTooltip(prev => ({ ...prev, visible: false }));
     const target = getHitboxTarget(event.target);
-    
-    if (target && target.id.startsWith('Hitboxes_constellations_')) {
-      const constName = target.id.replace('Hitboxes_constellations_', '');
-      const customView = document.querySelector(`#constellation_view_${constName}`);
+    const category = getHitboxCategory(target);
+
+    if (target && category === 'constellation') {
+      const name = getHitboxName(target);
+      const customView = document.querySelector(`#constellation_view_${name}`);
       if (customView) customView.classList.remove(styles.highlightedConstellation);
       target.classList.remove(styles.highlightedHitbox);
     }
@@ -80,23 +86,21 @@ export default function SectorMap() {
 
   const handleClick = (event, zoomToElement) => {
     const target = getHitboxTarget(event.target);
-    if (!target) return;
-    
-    const id = target.id;
+    const category = getHitboxCategory(target);
+    if (!target || !category) return;
 
-    if (id.startsWith('Hitboxes_constellations_') && currentZoomLevel === 'sector') {
-      const constName = id.replace('Hitboxes_constellations_', '');
-      setActiveConstellation(constName);
+    const name = getHitboxName(target);
+
+    if (category === 'constellation' && currentZoomLevel === 'sector') {
+      setActiveConstellation(name);
       setCurrentZoomLevel('constellation');
       setTooltip(prev => ({ ...prev, visible: false }));
 
       // Плавный кинематографичный наезд (зум x3, длительность 800мс)
       if (zoomToElement) zoomToElement(target, 3, 800);
-    } 
-    else if (id.startsWith('Hitboxes_system_') && currentZoomLevel === 'constellation') {
-      const systemKey = id.replace('Hitboxes_', '');
-      // Перенаправление на локальную карту системы
-      history.push(`/docs/system-stub?system=${systemKey}`);
+    }
+    else if (category === 'system' && currentZoomLevel === 'constellation') {
+      history.push(`/docs/system-stub?system=${name}`);
     }
   };
 
