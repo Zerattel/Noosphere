@@ -6,5 +6,405 @@
   "constellations_totem": {
     "title": "Созвездие Тотем",
     "description": "Созвездие Тотем известно как главный рассадник Ренегатов. Здесь можно сказать их территория."
+  },
+  "system_traun": {
+    "title": "Traun",
+    "description": "404"
+  },
+  "system_strue": {
+    "title": "Strue",
+    "description": "404"
+  },
+  "system_udei": {
+    "title": "Udei",
+    "description": "404"
+  },
+  "system_tex": {
+    "title": "Tex",
+    "description": "404"
+  },
+  "system_jeeltus": {
+    "title": "Jeeltus",
+    "description": "404"
+  },
+  "system_pli": {
+    "title": "Pli",
+    "description": "404"
+  },
+  "system_twin": {
+    "title": "Twin",
+    "description": "404"
+  },
+  "system_yiathup": {
+    "title": "Yiathup",
+    "description": "404"
+  },
+  "system_tiathag": {
+    "title": "Tiathag",
+    "description": "404"
+  },
+  "system_bleix": {
+    "title": "Bleix",
+    "description": "404"
+  },
+  "system_klooc": {
+    "title": "Klooc",
+    "description": "404"
+  },
+  "system_ojven": {
+    "title": "Ojven",
+    "description": "404"
+  },
+  "system_chaud": {
+    "title": "Chaud",
+    "description": "404"
+  },
+  "system_apra": {
+    "title": "Apra",
+    "description": "404"
+  },
+  "system_akaakil": {
+    "title": "Akaakil",
+    "description": "404"
+  },
+  "system_istrek": {
+    "title": "Istrek",
+    "description": "404"
+  },
+  "system_prauph": {
+    "title": "Prauph",
+    "description": "404"
+  },
+  "system_venetus": {
+    "title": "Venetus",
+    "description": "404"
+  },
+  "system_lirsonis": {
+    "title": "Lirsonis",
+    "description": "404"
+  },
+  "system_yeir": {
+    "title": "Yeir",
+    "description": "404"
+  },
+  "system_groms": {
+    "title": "Groms",
+    "description": "404"
+  },
+  "system_kroh": {
+    "title": "Kroh",
+    "description": "404"
+  },
+  "system_raintor": {
+    "title": "Raintor",
+    "description": "404"
+  },
+  "system_ukaft": {
+    "title": "Ukaft",
+    "description": "404"
+  },
+  "system_khift": {
+    "title": "Khift",
+    "description": "404"
+  },
+  "system_azokt": {
+    "title": "Azokt",
+    "description": "404"
+  },
+  "system_xooct": {
+    "title": "Xooct",
+    "description": "404"
+  },
+  "system_vrio": {
+    "title": "Vrio",
+    "description": "404"
+  },
+  "system_geos": {
+    "title": "Geos",
+    "description": "404"
+  },
+  "system_zriuts": {
+    "title": "Zriuts",
+    "description": "404"
+  },
+  "system_vex": {
+    "title": "Vex",
+    "description": "404"
+  },
+  "system_bas": {
+    "title": "Bas",
+    "description": "404"
+  },
+  "system_faim": {
+    "title": "Faim",
+    "description": "404"
+  },
+  "system_phaon": {
+    "title": "Phaon",
+    "description": "404"
+  },
+  "system_eflah": {
+    "title": "Eflah",
+    "description": "404"
+  },
+  "system_viz": {
+    "title": "Viz",
+    "description": "404"
+  },
+  "system_prid": {
+    "title": "Prid",
+    "description": "404"
+  },
+  "system_jilt": {
+    "title": "Jilt",
+    "description": "404"
+  },
+  "system_hus": {
+    "title": "Hus",
+    "description": "404"
+  },
+  "system_seor": {
+    "title": "Seor",
+    "description": "404"
+  },
+  "system_uvir": {
+    "title": "Uvir",
+    "description": "404"
+  },
+  "system_zreogtor": {
+    "title": "Zreogtor",
+    "description": "404"
+  },
+  "system_izold": {
+    "title": "Izold",
+    "description": "404"
+  },
+  "system_druahler": {
+    "title": "Druahler",
+    "description": "404"
+  },
+  "system_wiavlef": {
+    "title": "Wiavlef",
+    "description": "404"
+  },
+  "system_gleegro": {
+    "title": "Gleegro",
+    "description": "404"
+  },
+  "system_lineo": {
+    "title": "Lineo",
+    "description": "404"
+  },
+  "system_ject": {
+    "title": "Ject",
+    "description": "404"
+  },
+  "system_creenla": {
+    "title": "Creenla",
+    "description": "404"
+  },
+  "system_gluc": {
+    "title": "Gluc",
+    "description": "404"
+  },
+  "system_crim": {
+    "title": "Crim",
+    "description": "404"
+  },
+  "system_fabl": {
+    "title": "Fabl",
+    "description": "404"
+  },
+  "system_tootjevu": {
+    "title": "Tootjevu",
+    "description": "404"
+  },
+  "system_qotli": {
+    "title": "Qotli",
+    "description": "404"
+  },
+  "system_tloohi": {
+    "title": "Tloohi",
+    "description": "404"
+  },
+  "system_creict": {
+    "title": "Creict",
+    "description": "404"
+  },
+  "system_egroox": {
+    "title": "Egroox",
+    "description": "404"
+  },
+  "system_ustruct": {
+    "title": "Ustruct",
+    "description": "404"
+  },
+  "system_arosh": {
+    "title": "Arosh",
+    "description": "404"
+  },
+  "system_to": {
+    "title": "To",
+    "description": "404"
+  },
+  "system_zreipli": {
+    "title": "Zreipli",
+    "description": "404"
+  },
+  "system_sleukko": {
+    "title": "Sleukko",
+    "description": "404"
+  },
+  "system_ikon": {
+    "title": "Ikon",
+    "description": "404"
+  },
+  "system_evluk": {
+    "title": "Evluk",
+    "description": "404"
+  },
+  "system_triplex": {
+    "title": "Triplex",
+    "description": "404"
+  },
+  "system_ceoldir": {
+    "title": "Ceoldir",
+    "description": "404"
+  },
+  "system_xooct_2": {
+    "title": "Xooct 2",
+    "description": "404"
+  },
+  "system_griax": {
+    "title": "Griax",
+    "description": "404"
+  },
+  "system_aqm-2k": {
+    "title": "Aqm-2k",
+    "description": "404"
+  },
+  "system_kgo-76-g": {
+    "title": "Kgo-76-g",
+    "description": "404"
+  },
+  "system_imi-91-b": {
+    "title": "Imi-91-b",
+    "description": "404"
+  },
+  "system_epsilon-17": {
+    "title": "Epsilon-17",
+    "description": "404"
+  },
+  "system_rf-806": {
+    "title": "Rf-806",
+    "description": "404"
+  },
+  "system_atx-05-f": {
+    "title": "Atx-05-f",
+    "description": "404"
+  },
+  "system_omega": {
+    "title": "Omega",
+    "description": "404"
+  },
+  "system_ju-8": {
+    "title": "Ju-8",
+    "description": "404"
+  },
+  "system_tk-92": {
+    "title": "Tk-92",
+    "description": "404"
+  },
+  "system_ara-astera": {
+    "title": "Ara-astera",
+    "description": "404"
+  },
+  "system_qb-19j": {
+    "title": "Qb-19j",
+    "description": "404"
+  },
+  "system_sigma-72": {
+    "title": "Sigma-72",
+    "description": "404"
+  },
+  "system_nest": {
+    "title": "Nest",
+    "description": "404"
+  },
+  "system_nan-star": {
+    "title": "Nan-star",
+    "description": "404"
+  },
+  "system_wd-038": {
+    "title": "Wd-038",
+    "description": "404"
+  },
+  "system_zcv-37h": {
+    "title": "Zcv-37h",
+    "description": "404"
+  },
+  "system_cj-56g": {
+    "title": "Cj-56g",
+    "description": "404"
+  },
+  "system_bf-8-fp": {
+    "title": "Bf-8-fp",
+    "description": "404"
+  },
+  "constellations_oklafornia": {
+    "title": "Созвездие Oklafornia",
+    "description": "404"
+  },
+  "constellations_vermaska": {
+    "title": "Созвездие Vermaska",
+    "description": "404"
+  },
+  "constellations_pentagon": {
+    "title": "Созвездие Pentagon",
+    "description": "404"
+  },
+  "constellations_nevada": {
+    "title": "Созвездие Nevada",
+    "description": "404"
+  },
+  "constellations_root": {
+    "title": "Созвездие Root",
+    "description": "404"
+  },
+  "constellations_delta": {
+    "title": "Созвездие Delta",
+    "description": "404"
+  },
+  "constellations_tesseract": {
+    "title": "Созвездие Tesseract",
+    "description": "404"
+  },
+  "constellations_void": {
+    "title": "Созвездие Void",
+    "description": "404"
+  },
+  "constellations_limb": {
+    "title": "Созвездие Limb",
+    "description": "404"
+  },
+  "constellations_aviz": {
+    "title": "Созвездие Aviz",
+    "description": "404"
+  },
+  "constellations_araf": {
+    "title": "Созвездие Araf",
+    "description": "404"
+  },
+  "constellations_scepter": {
+    "title": "Созвездие Scepter",
+    "description": "404"
+  },
+  "constellations_kairn": {
+    "title": "Созвездие Kairn",
+    "description": "404"
+  },
+  "constellations_noreturn": {
+    "title": "Созвездие Noreturn",
+    "description": "404"
   }
 }

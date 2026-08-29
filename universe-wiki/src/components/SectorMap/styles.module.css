@@ -83,6 +83,9 @@
 .activeTitles {
   opacity: 1 !important;
 }
+.svgContainer :global([id^="titles_"] [id^="titles_"]) {
+  opacity: 1;
+}
 
 /* Кнопка отмены фокуса */
 .backButton {

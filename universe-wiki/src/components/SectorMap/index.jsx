@@ -163,11 +163,19 @@ export default function SectorMap() {
       hideTooltip();
       playZoomInSound();
 
-      if (zoomToElement) zoomToElement(target, 3, 800);
+            if (zoomToElement) zoomToElement(target, 3, 800);
 
-      // Показываем имена звёзд этого созвездия (см. пункт про constellationtitles)
+      // ВРЕМЕННАЯ ДИАГНОСТИКА — уберём после того, как найдём проблему
+      console.log('DEBUG: name =', name);
+      console.log('DEBUG: styles.activeTitles =', styles.activeTitles);
+
       const titlesGroup = document.querySelector(`#titles_${name}`);
-      if (titlesGroup) titlesGroup.classList.add(styles.activeTitles);
+      console.log('DEBUG: titlesGroup =', titlesGroup);
+
+      if (titlesGroup) {
+        titlesGroup.classList.add(styles.activeTitles);
+        console.log('DEBUG: className после add =', titlesGroup.className);
+      }
     }
     else if (category === 'system' && currentZoomLevel === 'constellation') {
       event.preventDefault();
