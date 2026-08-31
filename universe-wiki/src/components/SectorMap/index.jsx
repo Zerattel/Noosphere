@@ -163,19 +163,7 @@ export default function SectorMap() {
       hideTooltip();
       playZoomInSound();
 
-            if (zoomToElement) zoomToElement(target, 3, 800);
-
-      // ВРЕМЕННАЯ ДИАГНОСТИКА — уберём после того, как найдём проблему
-      console.log('DEBUG: name =', name);
-      console.log('DEBUG: styles.activeTitles =', styles.activeTitles);
-
-      const titlesGroup = document.querySelector(`#titles_${name}`);
-      console.log('DEBUG: titlesGroup =', titlesGroup);
-
-      if (titlesGroup) {
-        titlesGroup.classList.add(styles.activeTitles);
-        console.log('DEBUG: className после add =', titlesGroup.className);
-      }
+      if (zoomToElement) zoomToElement(target, 3, 800);
     }
     else if (category === 'system' && currentZoomLevel === 'constellation') {
       event.preventDefault();
@@ -219,12 +207,6 @@ export default function SectorMap() {
                   playZoomOutSound();
                   resetTransform(800); 
                   setCurrentZoomLevel('sector'); 
-
-                  if (activeConstellation) {
-                    const titlesGroup = document.querySelector(`#titles_${activeConstellation}`);
-                    if (titlesGroup) titlesGroup.classList.remove(styles.activeTitles);
-                  }
-
                   setActiveConstellation(null); 
                   hideTooltip();
                 }}
@@ -240,6 +222,7 @@ export default function SectorMap() {
                   styles.svgContainer, 
                   currentZoomLevel === 'sector' ? styles.viewLevelSector : styles.viewLevelConstellation
                 )}
+                data-active-constellation={activeConstellation || ''}
                 onClick={(e) => handleClick(e, zoomToElement)}
                 dangerouslySetInnerHTML={{ __html: svgContent }}
               />
@@ -248,7 +231,6 @@ export default function SectorMap() {
         )}
       </TransformWrapper>
 
-      {/* Тултип вынесен из состояния React, управляется через DOM (Ref) */}
       <div className={styles.tooltip} ref={tooltipRef}>
         <div className={styles.tooltipLine}></div>
         <div className={styles.tooltipContent}>

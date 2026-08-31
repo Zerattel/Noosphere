@@ -74,17 +74,38 @@
   opacity: 0;
 }
 
-/* Имена звёзд по умолчанию спрятаны — показываем только у активного
-   созвездия через JS-класс .activeTitles (см. index.jsx) */
+/* Имена звёзд по умолчанию спрятаны */
 .svgContainer :global([id^="titles_"]) {
   opacity: 0;
   transition: opacity 0.3s ease;
 }
-.activeTitles {
-  opacity: 1 !important;
-}
 .svgContainer :global([id^="titles_"] [id^="titles_"]) {
   opacity: 1;
+}
+
+/* Показываем названия звёзд только у активного созвездия — через
+   data-active-constellation на контейнере (обычный React-проп,
+   переживает любой ререндер), а НЕ через classList.add в JS.
+   Раньше мы вешали класс вручную прямо в обработчике клика, но клик
+   тут же вызывает setState → React перерисовывает компонент → и
+   содержимое dangerouslySetInnerHTML пересоздаётся заново, стирая
+   любые ручные правки DOM. Атрибут на самом внешнем диве это переживает. */
+.svgContainer[data-active-constellation="totem"] :global(#titles_totem),
+.svgContainer[data-active-constellation="root"] :global(#titles_root),
+.svgContainer[data-active-constellation="void"] :global(#titles_void),
+.svgContainer[data-active-constellation="limb"] :global(#titles_limb),
+.svgContainer[data-active-constellation="delta"] :global(#titles_delta),
+.svgContainer[data-active-constellation="aviz"] :global(#titles_aviz),
+.svgContainer[data-active-constellation="araf"] :global(#titles_araf),
+.svgContainer[data-active-constellation="scepter"] :global(#titles_scepter),
+.svgContainer[data-active-constellation="kairn"] :global(#titles_kairn),
+.svgContainer[data-active-constellation="nevada"] :global(#titles_nevada),
+.svgContainer[data-active-constellation="pentagon"] :global(#titles_pentagon),
+.svgContainer[data-active-constellation="vermaska"] :global(#titles_vermaska),
+.svgContainer[data-active-constellation="tesseract"] :global(#titles_tesseract),
+.svgContainer[data-active-constellation="noreturn"] :global(#titles_noreturn),
+.svgContainer[data-active-constellation="oklafornia"] :global(#titles_oklafornia) {
+  opacity: 1 !important;
 }
 
 /* Кнопка отмены фокуса */
