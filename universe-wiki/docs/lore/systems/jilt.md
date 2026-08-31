@@ -2,7 +2,7 @@
 
 <div className="hazard-line"></div>
 <div className="sci-fi-infobox">
-  <div className="infobox-title">Intercommunication</div>
+  <div className="infobox-title">JILT</div>
   <div className="hazard-line-mini"></div>
   <img src={require('@site/static/img/lore/systems/jilt.png').default} />
   
