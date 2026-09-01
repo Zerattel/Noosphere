@@ -12,10 +12,9 @@ export default function SectorMap() {
   
   // Предзагрузка путей для аудио (положи файлы в static/sounds/)
   const hoverSounds = [
-    useBaseUrl('/sounds/map_hover_1.wav'),
-    useBaseUrl('/sounds/map_hover_2.wav'),
-    useBaseUrl('/sounds/map_hover_3.wav'),
-    useBaseUrl('/sounds/map_hover_4.wav'),
+    useBaseUrl('/sounds/me_map_hover_01.wav'),
+    useBaseUrl('/sounds/me_map_hover_02.wav'),
+    useBaseUrl('/sounds/me_map_hover_03.wav'),
   ];
   const warpSoundUrl = useBaseUrl('/sounds/map_warp_01.wav');
   const zoomInSoundUrl = useBaseUrl('/sounds/map_zoomin_0.wav');
