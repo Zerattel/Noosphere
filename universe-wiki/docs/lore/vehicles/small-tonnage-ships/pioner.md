@@ -13,7 +13,7 @@
     <div className="infobox-value"><img src={require('@site/static/img/tonnage/Icon_ISIS_Combat.png').default} />Ударный (бюджетный)</div>
     
     <div className="infobox-label">Производитель:</div>
-    <div className="infobox-value">— (общего назначения)</div>
+    <div className="infobox-value">Klemantis Republic</div>
 
     <div className="infobox-label"><img src={require('@site/static/img/tonnage/32px-Icon_fit_dps.png').default} />Внешн. ОМ:</div>
     <div className="infobox-value">3</div>
