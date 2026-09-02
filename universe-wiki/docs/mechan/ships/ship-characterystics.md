@@ -1,3 +1,7 @@
+---
+sidebar_position: 2
+---
+
 # Характеристики и Тоннаж
 <div class="hazard-line"></div>
 

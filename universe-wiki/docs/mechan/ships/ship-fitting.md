@@ -1,3 +1,7 @@
+---
+sidebar_position: 3
+---
+
 # Оснащение (Модули)
 
 <div class="hazard-line"></div>
