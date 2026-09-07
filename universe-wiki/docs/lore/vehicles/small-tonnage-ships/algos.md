@@ -58,5 +58,5 @@
 <span class="highlight">
     Стоимость: 2 700 000 ITC
 </span>
-
+<br/><br/><br/><br/><br/>
 <div className="hazard-line"></div>
