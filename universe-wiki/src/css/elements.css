@@ -158,3 +158,33 @@ html[data-theme='dark'] .markdown table tbody tr:hover {
   background-color: rgba(255, 140, 0, 0.15) !important;
   transition: background-color 0.2s ease;
 }
+
+/* Адаптация для мобильных устройств (экраны меньше 768px) */
+@media (max-width: 768px) {
+  /* Отключаем обтекание текста и растягиваем инфобокс на всю ширину */
+  .sci-fi-infobox {
+    float: none !important;
+    width: 100% !important;
+    min-width: auto !important;
+    margin: 0 0 20px 0 !important; /* Убираем левый отступ */
+  }
+
+  /* Превращаем основной контейнер во flex-блок, как и советовал программист */
+  .sci-fi-box {
+    display: flex;
+    flex-direction: column; /* Поменяй на column-reverse, если инфобокс в HTML стоит ниже текста, но на телефоне должен быть сверху */
+  }
+
+  /* Сбрасываем плавающие картинки, чтобы они не ломали верстку на смартфонах */
+  .img-left, 
+  .img-right {
+    float: none !important;
+    width: 100% !important;
+    margin: 0 0 20px 0 !important;
+  }
+  
+  /* Делаем все размерные классы полноэкранными на мобильных */
+  .w-25, .w-50, .w-75 {
+    width: 100% !important;
+  }
+}
