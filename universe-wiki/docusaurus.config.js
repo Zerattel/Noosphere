@@ -20,6 +20,7 @@ const config = {
   trailingSlash: false, 
 
   onBrokenLinks: 'warn',
+  plugins: ['./src/plugins/ship-table-plugin'],
 
   i18n: {
     defaultLocale: 'en',

@@ -1,0 +1,250 @@
+.wrapper {
+  margin: 20px 0;
+}
+
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+  margin-bottom: 14px;
+}
+
+.search {
+  flex: 1 1 260px;
+  min-width: 200px;
+  background: #0a0a0a;
+  border: 1px solid rgba(255, 140, 0, 0.5);
+  color: #e0e0e0;
+  padding: 8px 12px;
+  font-size: 0.9rem;
+}
+
+.search:focus {
+  outline: none;
+  border-color: #ff8c00;
+  box-shadow: 0 0 6px rgba(255, 140, 0, 0.5);
+}
+
+.tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.tab,
+.tabActive {
+  background: #0a0a0a;
+  border: 1px solid rgba(255, 140, 0, 0.35);
+  color: #a0a0a0;
+  padding: 6px 10px;
+  font-size: 0.8rem;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.tab:hover {
+  border-color: #ff8c00;
+  color: #e0e0e0;
+}
+
+.tabActive {
+  background: rgba(255, 140, 0, 0.15);
+  border-color: #ff8c00;
+  color: #ffdba5;
+  font-weight: 700;
+}
+
+.columnsMenu {
+  position: relative;
+  margin-left: auto;
+}
+
+.columnsPanel {
+  position: absolute;
+  top: calc(100% + 6px);
+  right: 0;
+  background: #0a0a0a;
+  border: 1px solid #ff8c00;
+  padding: 10px 14px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(140px, 1fr));
+  gap: 6px 16px;
+  z-index: 20;
+  box-shadow: 0 0 14px rgba(255, 140, 0, 0.35);
+  min-width: 320px;
+}
+
+.columnOption {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.82rem;
+  color: #e0e0e0;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.resetBtn {
+  grid-column: 1 / -1;
+  margin-top: 6px;
+  background: rgba(255, 140, 0, 0.12);
+  border: 1px solid rgba(255, 140, 0, 0.5);
+  color: #ffdba5;
+  padding: 5px 8px;
+  font-size: 0.78rem;
+  cursor: pointer;
+}
+
+.resetBtn:hover {
+  background: rgba(255, 140, 0, 0.25);
+}
+
+.tableScroll {
+  overflow-x: auto;
+  border: 1px solid rgba(255, 140, 0, 0.4);
+}
+
+.table {
+  border-collapse: collapse;
+  background-color: #000;
+  width: 100%;
+  font-size: 0.85rem;
+}
+
+.table th,
+.table td {
+  border: 1px solid rgba(255, 140, 0, 0.15);
+  padding: 8px 10px;
+  white-space: nowrap;
+  text-align: left;
+}
+
+.table thead tr {
+  background-color: rgba(255, 140, 0, 0.1);
+  border-bottom: 2px solid #ff8c00;
+}
+
+.th {
+  cursor: pointer;
+  user-select: none;
+  color: #ffdba5;
+  position: sticky;
+  top: 0;
+  background: #1a1206;
+  z-index: 2;
+}
+
+.th:hover {
+  color: #fff;
+}
+
+.sortArrow {
+  color: #ff8c00;
+}
+
+.table tbody tr:nth-child(odd) {
+  background-color: #000;
+}
+
+.table tbody tr:nth-child(even) {
+  background-color: rgba(255, 140, 0, 0.06);
+}
+
+.table tbody tr:hover {
+  background-color: rgba(255, 140, 0, 0.15);
+  transition: background-color 0.15s ease;
+}
+
+.thumbCell {
+  width: 96px;
+  padding: 4px !important;
+}
+
+.thumb {
+  width: 92px;
+  height: 52px;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  border: 1px solid rgba(255, 140, 0, 0.4);
+}
+
+.thumbPlaceholder {
+  width: 92px;
+  height: 52px;
+}
+
+.nameCell {
+  position: sticky;
+  left: 0;
+  background: #050505;
+  font-weight: 700;
+  z-index: 1;
+}
+
+.table tbody tr:nth-child(even) .nameCell {
+  background: #0c0700;
+}
+
+.iconText {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  white-space: nowrap;
+}
+
+.icon {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+}
+
+.empty {
+  text-align: center;
+  color: #a0a0a0;
+  padding: 20px !important;
+}
+
+/* --- Тултип профильных особенностей --- */
+.tooltipWrap {
+  position: relative;
+  display: inline-block;
+  cursor: help;
+}
+
+.badge {
+  font-size: 1rem;
+}
+
+.tooltip {
+  visibility: hidden;
+  opacity: 0;
+  position: absolute;
+  bottom: 130%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #111;
+  border: 1px solid #ff8c00;
+  color: #e0e0e0;
+  padding: 10px 12px;
+  font-size: 0.8rem;
+  white-space: normal;
+  width: max-content;
+  max-width: 320px;
+  box-shadow: 0 0 10px rgba(255, 140, 0, 0.4);
+  z-index: 10;
+  transition: opacity 0.12s ease;
+  pointer-events: none;
+}
+
+.tooltipWrap:hover .tooltip {
+  visibility: visible;
+  opacity: 1;
+}
+
+@media (max-width: 768px) {
+  .table {
+    font-size: 0.75rem;
+  }
+}
