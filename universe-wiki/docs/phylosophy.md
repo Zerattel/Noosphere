@@ -1,6 +1,6 @@
 ---
 title: Философия игры
-sidebar_position: 2
+sidebar_position: 3
 ---
 <div class="hazard-line"></div>
 <div style={{ textAlign: 'center' }}>
