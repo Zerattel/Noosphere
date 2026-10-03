@@ -1,5 +1,5 @@
 ---
-title: Правида ходов
+title: Правила ходов
 sidebar_position: 2
 ---
 
