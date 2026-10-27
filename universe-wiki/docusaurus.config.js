@@ -3,6 +3,21 @@ import {themes as prismThemes} from 'prism-react-renderer';
 import remarkMath from 'remark-math';
 import rehypeKatex from 'rehype-katex';
 
+// Достаёт путь первой картинки из статьи (инфобокс) для og:image
+const FIRST_IMG_RE =
+  /<img\b[^>]*?\bsrc=(?:\{\s*require\(\s*['"]([^'"]+)['"]\s*\)(?:\.default)?\s*\}|["']([^"']+)["'])/;
+
+/** @param {string} content */
+function extractFirstImage(content) {
+  const m = content.match(FIRST_IMG_RE);
+  if (!m) return undefined;
+  const src = m[1] || m[2];
+  if (src.startsWith('@site/static/')) return src.slice('@site/static/'.length);
+  if (src.startsWith('@site/')) return undefined; // не из static, og:image не получится
+  if (/^https?:\/\//.test(src)) return src;
+  return src.replace(/^\//, '');
+}
+
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: 'Noosphere Wiki',
@@ -10,6 +25,17 @@ const config = {
   favicon: 'img/hsrpico.ico',
 
   future: { v4: true },
+
+  markdown: {
+    parseFrontMatter: async (params) => {
+      const result = await params.defaultParseFrontMatter(params);
+      if (!result.frontMatter.image) {
+        const img = extractFirstImage(result.content);
+        if (img) result.frontMatter.image = img;
+      }
+      return result;
+    },
+  },
 
   url: 'https://zerattel.github.io',
   // Динамический путь: корень для localhost, /Noosphere/ для GitHub Pages
