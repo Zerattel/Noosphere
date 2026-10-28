@@ -28,7 +28,7 @@
     <div className="infobox-value">32 ГДж/ход</div>
 
     <div className="infobox-label"><img src={require('@site/static/img/tonnage/Icon_mass.png').default} />Маса:</div>
-    <div className="infobox-value">12 800 000 kg</div>
+    <div className="infobox-value">2 500 000 kg</div>
 
     <div className="infobox-label"><img src={require('@site/static/img/tonnage/Icon_ISIS_Tackling.png').default} />Сигнатура:</div>
     <div className="infobox-value">140 m</div>
