@@ -28,7 +28,7 @@
     <div className="infobox-value">32 ГДж/ход</div>
 
     <div className="infobox-label"><img src={require('@site/static/img/tonnage/Icon_mass.png').default} />Маса:</div>
-    <div className="infobox-value">2 500 000 kg</div>
+    <div className="infobox-value">12 800 000 kg</div>
 
     <div className="infobox-label"><img src={require('@site/static/img/tonnage/Icon_ISIS_Tackling.png').default} />Сигнатура:</div>
     <div className="infobox-value">140 m</div>
@@ -57,6 +57,6 @@
 Горбун вооружён четырьмя автопушками и двумя ИК лазерами. Также стоит отметить что у него два реактора, находящихся в разных частях корабля. Доков для истребителей не имеет. Трюм весьма тесный как для крейсера но способный перевезни малогабаритный груз. Стоит отметить то что он весьма быстроходен как для клемантийского крейсера.
 
 <span class="highlight">
-    Стоимость: от 15 000 000 ITC
+    Стоимость: от 2 500 000 ITC
 </span>
 <div className="hazard-line"></div>
