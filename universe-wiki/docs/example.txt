@@ -40,3 +40,14 @@
   <b>Броня:</b> Стандартная (Сплав)<br/>
   <b>Вооружение:</b> Автопушки 30мм<br/>
 </div>
+
+<div class="mbox mbox-orange">
+  <div class="mbox-corner">5 МИНУТ</div>
+  <div class="mbox-kicker">Уборка — СУПЕР ЗЕМЛЯ</div>
+  <div class="mbox-title">Вынести мусор</div>
+  <div class="mbox-desc">Уберите отходы со станции.</div>
+  <div class="mbox-hazard">
+    <span class="mbox-hazard-label">НАГРАДА:</span>
+    <span class="chip chip-blue"><span class="chip-tag">XP</span>~100</span>
+  </div>
+</div>

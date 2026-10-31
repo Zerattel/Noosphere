@@ -188,3 +188,159 @@ html[data-theme='dark'] .markdown table tbody tr:hover {
     width: 100% !important;
   }
 }
+
+/* ========================================================================
+   MISSION-BOX — карточка со цветной полосой слева, заголовком и хазард-плашкой
+   (по мотивам интерфейса миссий Helldivers 2)
+
+   Цвет полосы:   style="--mbox-color: #00bfff"  или готовые классы mbox-blue / mbox-red / mbox-green / mbox-yellow / mbox-gray
+   Текст в углу:  <div class="mbox-corner">5 МИНУТ</div>
+   Предисловие:   <div class="mbox-kicker">...</div>
+   Заголовок:     <div class="mbox-title">...</div>
+   Описание:      <div class="mbox-desc">...</div>
+   Хазард-линия:  <div class="mbox-hazard"><span class="mbox-hazard-label">НАГРАДА:</span> ...плашки .chip... </div>
+   Любой блок можно не писать — карточка сожмётся.
+   ======================================================================== */
+
+.mbox {
+  --mbox-color: #ff8c00;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  margin: 0 0 30px;
+  padding: 8px 10px 4px 14px;
+  border-left: 6px solid var(--mbox-color);
+  background: rgba(0, 0, 0, 0.16);
+  animation: mboxFadeIn 0.3s ease;
+}
+
+.mbox-orange { --mbox-color: #ff8c00; }
+.mbox-blue   { --mbox-color: #00bfff; }
+.mbox-red    { --mbox-color: #ff3333; }
+.mbox-green  { --mbox-color: #4cd964; }
+.mbox-yellow { --mbox-color: #ffd60a; }
+.mbox-gray   { --mbox-color: #9a9a9a; }
+
+/* Обводка для текста поверх чего угодно (аналог filter-outline из исходника) */
+.text-outline,
+.mbox-corner,
+.mbox-kicker,
+.mbox-title,
+.mbox-desc,
+.mbox-hazard-label,
+.chip {
+  text-shadow:
+    1px 1px 0 #000,
+    -1px -1px 0 #000,
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+    0 0 6px rgba(0, 0, 0, 0.9);
+}
+
+/* Текст в правом верхнем углу */
+.mbox-corner {
+  position: absolute;
+  top: 8px;
+  right: 10px;
+  font-family: monospace;
+  font-size: 0.85rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #e0e0e0;
+}
+
+.mbox-kicker {
+  font-size: 1.05rem;
+  color: #b8b8b8;
+  padding-right: 120px; /* не залезаем под текст в углу */
+}
+
+.mbox-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  line-height: 1.25;
+  margin-bottom: 10px;
+  color: #fff;
+}
+
+.mbox-desc {
+  font-size: 1.05rem;
+  color: #b8b8b8;
+  margin-bottom: 10px;
+}
+.mbox-desc > :last-child { margin-bottom: 0; }
+
+/* Хазард-линия: тусклая диагональная лента на фоне + текст и плашки поверх */
+.mbox-hazard {
+  position: relative;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px 10px;
+  min-height: 60px;
+  margin: 0 0 6px;
+  padding: 6px 10px;
+  box-sizing: border-box;
+  overflow: hidden;
+  animation: mboxFadeIn 0.3s ease;
+}
+
+.mbox-hazard::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: repeating-linear-gradient(
+    45deg,
+    transparent,
+    transparent 10px,
+    rgba(255, 255, 255, 0.5) 10px,
+    rgba(255, 255, 255, 0.5) 20px
+  );
+  opacity: 0.1; /* как в исходнике */
+  pointer-events: none;
+}
+
+.mbox-hazard > * { position: relative; } /* текст и плашки поверх ленты */
+
+.mbox-hazard-label {
+  font-size: 1.25rem;
+  margin-right: 10px;
+  color: #e0e0e0;
+}
+
+/* ---- Яркая полупрозрачная плашка (chip). Можно класть куда угодно, не только в хазард-линию ---- */
+.chip {
+  --chip-color: #ff8c00;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 8px;
+  border: 2px solid var(--chip-color);
+  background: color-mix(in srgb, var(--chip-color) 22%, transparent);
+  font-weight: 600;
+  line-height: 1.2;
+  color: #fff;
+  white-space: nowrap;
+}
+/* Метка внутри плашки (например "XP" в цвете плашки) */
+.chip-tag {
+  color: var(--chip-color);
+  font-weight: 700;
+}
+
+.chip-orange { --chip-color: #ff8c00; }
+.chip-blue   { --chip-color: #00bfff; }
+.chip-red    { --chip-color: #ff3333; }
+.chip-green  { --chip-color: #4cd964; }
+.chip-yellow { --chip-color: #ffd60a; }
+.chip-gray   { --chip-color: #9a9a9a; }
+
+@keyframes mboxFadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@media (max-width: 768px) {
+  .mbox-kicker { padding-right: 0; margin-top: 22px; } /* уголок уходит над кикером */
+}

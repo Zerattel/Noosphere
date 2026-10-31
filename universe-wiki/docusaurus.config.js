@@ -18,6 +18,15 @@ function extractFirstImage(content) {
   return src.replace(/^\//, '');
 }
 
+// Динамический путь: корень для localhost, /Noosphere/ для GitHub Pages
+const BASE_URL = process.env.NODE_ENV === 'development' ? '/' : '/Noosphere/';
+
+// Редирект корня сайта (https://zerattel.github.io/Noosphere/) на /main.
+// Скрипт стоит в <head> и срабатывает до отрисовки страницы, поэтому мигания нет.
+// GitHub Pages не умеет серверные редиректы, поэтому: скрипт в <head> (мгновенно, без мигания)
+// + страница src/pages/index.js (на случай навигации внутри сайта и отключённого JS).
+const ROOT_REDIRECT_SCRIPT = `(function(){var b=${JSON.stringify(BASE_URL)},p=location.pathname;if(p===b||p===b.replace(/\/$/,'')||p===b+'index.html'){location.replace(b+'main'+location.search+location.hash);}})();`;
+
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: 'Noosphere Wiki',
@@ -38,8 +47,8 @@ const config = {
   },
 
   url: 'https://zerattel.github.io',
-  // Динамический путь: корень для localhost, /Noosphere/ для GitHub Pages
-  baseUrl: process.env.NODE_ENV === 'development' ? '/' : '/Noosphere/',
+  baseUrl: BASE_URL,
+  headTags: [{ tagName: 'script', attributes: {}, innerHTML: ROOT_REDIRECT_SCRIPT }],
 
   organizationName: 'Zerattel',
   projectName: 'Noosphere',

@@ -1,0 +1,79 @@
+/* ---- Глобальные правила: родной скроллбар прячется, только когда наш рейл реально включён ---- */
+:global(html.hazard-scroll) {
+  scrollbar-width: none;            /* Firefox */
+}
+:global(html.hazard-scroll)::-webkit-scrollbar {
+  display: none;                    /* Chrome / Safari / Edge */
+}
+/* Освобождаем под рейл правую полосу, чтобы он не перекрывал контент и кнопки навбара */
+:global(html.hazard-scroll) body {
+  margin-right: 24px;
+}
+
+/* ---- Рейл ---- */
+.rail {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 24px;
+  z-index: 1000;                    /* поверх навбара (у него 200) */
+  box-sizing: border-box;
+  cursor: pointer;
+  user-select: none;
+  touch-action: none;
+  /* зеркальная версия исходной рамки: тонкая серая линия справа */
+  border-right: 1.5px solid gray;
+  background: #000;
+}
+
+/* Лента: в исходнике left:5px; width:13px; top/bottom:5px. Зеркалим -> right:5px */
+.stripes {
+  position: absolute;
+  top: 5px;
+  bottom: 5px;
+  right: 5px;
+  width: 13px;
+  overflow: hidden;
+}
+
+/* Яркий слой лежит строго поверх тусклого, но overflow тут не режем — иначе обрежется glow */
+.stripesLit {
+  overflow: visible;
+  pointer-events: none;
+}
+
+/* Те же полосы, что в исходнике (45deg -> -45deg из-за зеркала), чтобы тусклый и яркий слой совпадали */
+.dim,
+.lit {
+  position: absolute;
+  inset: 0;
+}
+.dim {
+  background-image: repeating-linear-gradient(
+    -45deg,
+    transparent,
+    transparent 10px,
+    rgba(255, 255, 255, 0.5) 10px,
+    rgba(255, 255, 255, 0.5) 20px
+  );
+  opacity: 0.1;
+}
+.lit {
+  background-image: repeating-linear-gradient(
+    -45deg,
+    transparent,
+    transparent 10px,
+    #ff8c00 10px,
+    #ff8c00 20px
+  );
+}
+/* Свечение на 4px от края яркого участка */
+.glow {
+  position: absolute;
+  inset: 0;
+  filter: drop-shadow(0 0 4px #ff8c00);
+}
+.rail:hover .glow {
+  filter: drop-shadow(0 0 4px #ff8c00) brightness(1.15);
+}
