@@ -49,10 +49,3 @@ sidebar_position: 1
     <span class="chip chip-orange"><span class="chip-tag">Zerattel</span></span>
   </div>
 </div>
-
-## К прочтению:
-- [Философия игры](phylosophy)
-- [История мира](./lore/introduction/history.md)
-- [Хаят сейчас](./lore/introduction/hayat-now.md)
-## Авторы
-- Zerattel
